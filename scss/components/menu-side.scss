@@ -1,0 +1,35 @@
+.menu-side {
+  background: map-get($coloration, air);
+
+  .item {
+    background: transparent;
+    border-color: rgba(#FFF, .1);
+
+    &.on a {
+      &:before {
+        content: '•';
+        display: inline-block;
+        color: #8bff9b;
+      }
+    }
+  }
+
+  p {
+    color: rgba(#FFF, .35);
+  }
+
+  a.item-content {
+    background: transparent;
+    color: rgba(#FFF, .8);
+    font-weight: bold;
+    transition: background .2s;
+
+    &:hover {
+      background: rgba(#000, .05);
+    }
+
+    &:active, &.activated {
+      background: rgba(#000, .6);
+    }
+  }
+}

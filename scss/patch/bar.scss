@@ -1,0 +1,29 @@
+.bar.bar-header {
+  background: map-get($coloration, air);
+
+  .title {
+    color: #FFF;
+
+    &:before {
+      $size: 30px;
+      width: $size;
+      height: $size;
+      background: url('../img/header/logo.png') center no-repeat;
+      background-size: cover;
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+  }
+
+  button.header-item {
+    color: #FFF;
+  }
+
+  .header-item {
+    button {
+      color: #FFF;
+    }
+  }
+}

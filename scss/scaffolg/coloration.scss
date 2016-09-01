@@ -1,0 +1,17 @@
+@each $color in map-keys($coloration) {
+  .bg-#{$color} {
+    background-color: map-get($coloration, $color);
+  }
+
+  .color-#{$color} {
+    color: map-get($coloration, $color);
+  }
+
+  a.color-#{$color} {
+    color: map-get($coloration, $color);
+
+    &:hover {
+      color: lighten(map-get($coloration, $color), 10);
+    }
+  }
+}

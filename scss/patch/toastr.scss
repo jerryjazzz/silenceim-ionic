@@ -1,0 +1,24 @@
+body {
+
+  .toast-bottom-center {
+    bottom: 5vh;
+  }
+
+  #toast-container > div {
+    box-shadow: none!important;
+  }
+
+  #toast-container > .toast {
+    background: transparent!important;
+    background-image: none!important;
+    padding: 0;
+    text-align: center;
+
+    .toast-message {
+      background: #000;
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+  }
+}

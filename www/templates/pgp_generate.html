@@ -1,0 +1,27 @@
+<ion-view view-title="Keypair" class="ion-view">
+  <ion-content class="ion-content-decorated">
+    <div class="module-window">
+      <h4 class="m-b-lg">Generate PGP Keypair</h4>
+      <p class="m-b-lg">
+        We will generate Keypair on your devise locally.
+        Send generated public Key to your buddy (you may do it via any public channel or network).
+      </p>
+
+      <ion-list>
+        <ion-item ng-click="generate(1024)" class="item-icon-right">
+          1024 bit
+        </ion-item>
+        <ion-item ng-click="generate(2048)" class="item-icon-right">
+          2048 bit
+        </ion-item>
+        <ion-item ng-click="generate(3072)" class="item-icon-right">
+          3072 bit
+        </ion-item>
+        <ion-item ng-click="generate(4096)" class="item-icon-right">
+          4096 bit
+        </ion-item>
+      </ion-list>
+
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+/*
+ * App
+ */
+
+$coloration: (
+  white: #FFF,
+  text: #666,
+  air: #3c7efb,
+  nepal: #84a2bc,
+  picton-blue: #b0e2f3,
+  half: #fdffe1,
+  success: #36d970,
+  muted: rgba(#000, .3),
+  bg: #fafafa
+);
+
+$indents: (
+  base: 5px,
+  xs: 5px * 1.5,
+  sm: 5px * 2,
+  md: 5px * 2.5,
+  lg: 5px * 4,
+  xlg: 5px * 8,
+  xxlg: 6px * 12
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 544px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+/*
+ * Ionic
+ */
+$bar-height: 55px;
+$base-color: #666;

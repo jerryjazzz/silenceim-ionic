@@ -1,0 +1,23 @@
+@keyframes moduleWindowAnimation {
+  from {
+    transform: translateY(-5px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.module-window {
+  max-width: 450px;
+  margin: 0 auto;
+  background: #FFF;
+  animation: moduleWindowAnimation .8s;
+  padding: map-get($indents, xlg);
+  padding-top: map-get($indents, xxlg);
+
+  @include media-breakpoint-down(sm) {
+    padding: map-get($indents, lg);
+    padding-top: map-get($indents, xlg);
+  }
+}

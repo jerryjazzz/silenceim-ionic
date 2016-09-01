@@ -1,0 +1,14 @@
+.table {
+  width: 100%;
+  text-align: left;
+
+  th, td {
+    padding: 5px 10px;
+  }
+}
+
+.table-bordered {
+  th, td {
+    border: rgba(#000, .09) 1px solid;
+  }
+}

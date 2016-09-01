@@ -1,0 +1,40 @@
+<ion-view view-title="AES" class="ion-view">
+  <ion-content class="ion-content-decorated">
+    <div class="module-window">
+      <h4 class="m-b-lg">AES encryption</h4>
+      <p class="m-b-lg">We will generate a <b>{{ model.bit }}bit</b>  key using PBKDF2 with <b>{{ model.iterations }} iterations</b> based on your passphrase.</p>
+
+      <form ng-submit="submit()" class="m-b-lg">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Passphrase</span>
+            <input type="text" ng-model="model.passphrase">
+          </label>
+
+          <label class="item" ng-show="model.key">
+            <small class="word-break-all color-nepal">{{ model.key }}</small>
+          </label>
+
+          <label class="item">
+            <button class="button button-block button-positive" type="submit">Generate</button>
+          </label>
+        </div>
+      </form>
+
+      <table class="full-width color-muted">
+        <tr>
+          <td class="p-r-base">
+            <i class="ion-alert-circled"></i>
+          </td>
+          <td class="full-width">
+            <p class="m-b-0">
+              DO NOT SEND A PASSPHRASE TO YOUR OPPONENT VIA PUBLIC NETWORK OR CHANNEL.
+            </p>
+          </td>
+        </tr>
+      </table>
+
+
+    </div>
+  </ion-content>
+</ion-view>

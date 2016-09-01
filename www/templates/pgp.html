@@ -1,0 +1,30 @@
+<ion-view view-title="PGP" class="ion-view">
+  <ion-content class="ion-content-decorated">
+    <div class="module-window">
+      <h4 class="m-b-lg">PGP encryption</h4>
+      <p class="m-b-lg">
+        PGP encryption uses public-key cryptography.
+        You may generate a new Keypair or provide you own keys here.
+      </p>
+
+      <ion-list>
+        <ion-item href="#/app/playlists" class="item-icon-right">
+          <i class="icon ion-android-lock"></i>
+          My Private Key
+        </ion-item>
+        <ion-item href="#/app/about/license" class="item-icon-right">
+          <i class="icon ion-ios-upload"></i>
+          My Public Key
+        </ion-item>
+        <ion-item href="#/app/pgp/buddy" class="item-icon-right">
+          <i class="icon ion-ios-download"></i>
+          Buddy's Public Key
+        </ion-item>
+        <ion-item>
+          <a class="button button-block button-positive" href="#/app/pgp/generate">Generate</a>
+        </ion-item>
+      </ion-list>
+
+    </div>
+  </ion-content>
+</ion-view>

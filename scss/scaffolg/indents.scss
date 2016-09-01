@@ -1,0 +1,65 @@
+@each $indent in map-keys($indents) {
+  .m-t-#{$indent} {
+    margin-top: map-get($indents, $indent);
+  }
+
+  .m-b-#{$indent} {
+    margin-bottom: map-get($indents, $indent);
+  }
+
+  .m-l-#{$indent} {
+    margin-left: map-get($indents, $indent);
+  }
+
+  .m-r-#{$indent} {
+    margin-right: map-get($indents, $indent);
+  }
+
+  .m-x-#{$indent} {
+    margin-left: map-get($indents, $indent);
+    margin-right: map-get($indents, $indent);
+  }
+
+  .m-y-#{$indent} {
+    margin-top: map-get($indents, $indent);
+    margin-bottom: map-get($indents, $indent);
+  }
+
+  .p-#{$indent} {
+    padding: map-get($indents, $indent);
+  }
+
+  .p-t-#{$indent} {
+    padding-top: map-get($indents, $indent);
+  }
+
+  .p-b-#{$indent} {
+    padding-bottom: map-get($indents, $indent);
+  }
+
+  .p-l-#{$indent} {
+    padding-left: map-get($indents, $indent);
+  }
+
+  .p-r-#{$indent} {
+    padding-right: map-get($indents, $indent);
+  }
+
+  .p-x-#{$indent} {
+    padding-left: map-get($indents, $indent);
+    padding-right: map-get($indents, $indent);
+  }
+
+  .p-y-#{$indent} {
+    padding-top: map-get($indents, $indent);
+    padding-bottom: map-get($indents, $indent);
+  }
+}
+
+.m-b-0 {
+  margin-bottom: 0;
+}
+
+.m-t-0 {
+  margin-top: 0;
+}
