@@ -8,5 +8,8 @@
     "enigma": "*",
     "sjcl": "^1.0.4",
     "jquery": "^3.1.0"
+  },
+  "resolutions": {
+    "jquery": "^3.1.0"
   }
 }

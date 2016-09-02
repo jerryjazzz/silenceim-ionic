@@ -14,12 +14,17 @@ module.exports = function (shipit) {
       deployTo: `/home/${DEPLOY_USER}/www/`,
       repositoryUrl: 'git@github.com:jesus-hear-you/silenceim-ionic.git',
       branch: 'master',
-      ignores: ['.git', 'node_modules/*', 'www/lib', 'tmp'],
+      ignores: ['.git', 'node_modules/*', 'tmp'],
       keepReleases: 5,
       deleteOnRollback: false,
       shared: {
         overwrite: true,
-        dirs: ['node_modules', 'www/lib'],
+        dirs: ['node_modules'],
+      },
+      bower: {
+        remote: false,
+        installFlags: ['--save'],
+        // triggerEvent: 'init'
       }
     },
     production: {
