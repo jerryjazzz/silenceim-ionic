@@ -98,6 +98,13 @@ function config($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/about_vendors.html'
       }
     }
+  }).state('app.about_security', {
+    url: '/about/security',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/about_security.html'
+      }
+    }
   });
 
   // Landing + 404
