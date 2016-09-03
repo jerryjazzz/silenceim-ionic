@@ -1,0 +1,36 @@
+<ion-view view-title="Private Key" class="ion-view">
+  <ion-content class="ion-content-decorated">
+    <div class="module-window">
+      <h4 class="m-b-lg">My Private Key</h4>
+      <p class="m-b-lg">
+        Private key is using to decrypt messages from your buddy and to sign messages from you.
+      </p>
+
+      <form ng-submit="submit()" class="m-b-lg">
+        <div class="list">
+          <label class="item item-input" >
+            <textarea ng-model="model.key" placeholder="Paste yout public key here" rows="8" cols="10" style="resize: none;"></textarea>
+          </label>
+
+          <label class="item">
+            <button class="button button-block button-positive" type="submit">Save</button>
+          </label>
+        </div>
+      </form>
+
+      <table class="full-width color-muted">
+        <tr>
+          <td class="p-r-base">
+            <i class="ion-alert-circled"></i>
+          </td>
+          <td class="full-width">
+            <p class="m-b-0">
+              KEEP YOUR PRIVATE KEY AS SECRET AS POSSIBLE. DO NOT SHARE IT WITH ANYBODY.
+            </p>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+  </ion-content>
+</ion-view>

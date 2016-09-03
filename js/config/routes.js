@@ -32,9 +32,11 @@ function config($stateProvider, $urlRouterProvider) {
     }
   }).state('app.pgp', {
     url: '/pgp',
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/pgp.html',
+        controller: 'PgpCtrl'
       }
     }
   }).state('app.pgp_generate', {
@@ -43,6 +45,33 @@ function config($stateProvider, $urlRouterProvider) {
       'menuContent': {
         templateUrl: 'templates/pgp_generate.html',
         controller: 'PgpGenerateCtrl'
+      }
+    }
+  }).state('app.pgp_my_private', {
+    url: '/pgp/my-private',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/pgp_my_private.html',
+        controller: 'PgpMyPrivateCtrl'
+      }
+    }
+  }).state('app.pgp_my_public', {
+    url: '/pgp/my-public',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/pgp_my_public.html',
+        controller: 'PgpMyPublicCtrl'
+      }
+    }
+  }).state('app.pgp_buddy_public', {
+    url: '/pgp/buddy-public',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/pgp_buddy_public.html',
+        controller: 'PgpBuddyPublicCtrl'
       }
     }
   });

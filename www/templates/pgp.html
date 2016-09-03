@@ -8,16 +8,19 @@
       </p>
 
       <ion-list>
-        <ion-item href="#/app/playlists" class="item-icon-right">
+        <ion-item href="#/app/pgp/my-private" class="item-icon-right">
           <i class="icon ion-android-lock"></i>
+          <span class="color-success" ng-show="myPrivateKey">•</span>
           My Private Key
         </ion-item>
-        <ion-item href="#/app/about/license" class="item-icon-right">
+        <ion-item href="#/app/pgp/my-public" class="item-icon-right">
           <i class="icon ion-ios-upload"></i>
+          <span class="color-success" ng-show="myPublicKey">•</span>
           My Public Key
         </ion-item>
-        <ion-item href="#/app/pgp/buddy" class="item-icon-right">
+        <ion-item href="#/app/pgp/buddy-public" class="item-icon-right">
           <i class="icon ion-ios-download"></i>
+          <span class="color-success" ng-show="buddyPublicKey">•</span>
           Buddy's Public Key
         </ion-item>
         <ion-item>

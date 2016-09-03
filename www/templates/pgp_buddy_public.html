@@ -1,0 +1,23 @@
+<ion-view view-title="Public Key" class="ion-view">
+  <ion-content class="ion-content-decorated">
+    <div class="module-window">
+      <h4 class="m-b-lg">Buddy's Public Key</h4>
+      <p class="m-b-lg">
+        Retrieve buddy's public key. We will use this key to encrypt messages from you.
+      </p>
+
+      <form ng-submit="submit()">
+        <div class="list">
+          <label class="item item-input" >
+            <textarea ng-model="model.key" placeholder="Paste yout public key here" rows="8" cols="10" style="resize: none;"></textarea>
+          </label>
+
+          <label class="item">
+            <button class="button button-block button-positive" type="submit">Save</button>
+          </label>
+        </div>
+      </form>
+
+    </div>
+  </ion-content>
+</ion-view>
