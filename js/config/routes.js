@@ -107,6 +107,7 @@ function config($stateProvider, $urlRouterProvider) {
     }
   }).state('app.about_tutorial', {
     url: '/about/tutorial',
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/about_tutorial.html',

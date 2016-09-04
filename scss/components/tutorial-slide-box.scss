@@ -1,3 +1,17 @@
 .tutorial-slide-box {
   height: 100%;
+
+  .slider-slide {
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+}
+
+.tutorial-slide-content {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
 }
