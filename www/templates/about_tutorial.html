@@ -1,6 +1,14 @@
-<ion-view view-title="Welcome Tutorial">
-  <ion-content scroll="false">
-    <ion-slide-box class="tutorial-slide-box">
+<ion-view view-title="Tutorial">
+
+  <ion-nav-buttons side="right">
+    <button class="button button-positive button-clear no-animation" ng-click="next()" ng-hide="isLastSlide()">
+      Next
+    </button>
+  </ion-nav-buttons>
+
+
+  <ion-content scroll="true" class="tutorial-content">
+    <ion-slide-box class="tutorial-slide-box" on-slide-changed="slideChanged(index)" pager-click="slide(index)">
       <ion-slide>
         <div class="tutorial-slide-content">
           <img src="img/about/tutorial/step-1.png?" class="m-b-base" style="max-width:250px; margin-top: -20%"/>
@@ -22,40 +30,23 @@
 
 
 
-<!--<ion-slide-box ion-view view-title="Welcome Tutorial" on-slide-changed="slideHasChanged($index)">-->
-  <!--&lt;!&ndash;<ion-nav-buttons side="left">&ndash;&gt;-->
-    <!--&lt;!&ndash;<button class="button button-positive button-clear no-animation" ng-click="startApp()" ng-show="!slideIndex">&ndash;&gt;-->
-      <!--&lt;!&ndash;Skip Intro&ndash;&gt;-->
-    <!--&lt;!&ndash;</button>&ndash;&gt;-->
-    <!--&lt;!&ndash;<button class="button button-positive button-clear no-animation">&ndash;&gt;-->
-      <!--&lt;!&ndash;Previous Slide&ndash;&gt;-->
-    <!--&lt;!&ndash;</button>&ndash;&gt;-->
-  <!--&lt;!&ndash;</ion-nav-buttons>&ndash;&gt;-->
+  <!--<ion-nav-buttons side="left">-->
+    <!--<button class="button button-positive button-clear no-animation" ng-click="startApp()" ng-show="!slideIndex">-->
+      <!--Skip Intro-->
+    <!--</button>-->
+    <!--<button class="button button-positive button-clear no-animation">-->
+      <!--Previous Slide-->
+    <!--</button>-->
+  <!--</ion-nav-buttons>-->
 
-  <!--&lt;!&ndash;<ion-nav-buttons side="right">&ndash;&gt;-->
-    <!--&lt;!&ndash;<button class="button button-positive button-clear no-animation"&ndash;&gt;-->
-            <!--&lt;!&ndash;ng-click="next()" ng-show="slideIndex != 2">&ndash;&gt;-->
-      <!--&lt;!&ndash;Next&ndash;&gt;-->
-    <!--&lt;!&ndash;</button>&ndash;&gt;-->
-    <!--&lt;!&ndash;<button class="button button-positive button-clear no-animation"&ndash;&gt;-->
-            <!--&lt;!&ndash;ng-click="startApp()" ng-show="slideIndex == 2">&ndash;&gt;-->
-      <!--&lt;!&ndash;Start using MyApp&ndash;&gt;-->
-    <!--&lt;!&ndash;</button>&ndash;&gt;-->
-  <!--&lt;!&ndash;</ion-nav-buttons>&ndash;&gt;-->
+  <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button button-positive button-clear no-animation"-->
+            <!--ng-click="next()" ng-show="slideIndex != 2">-->
+      <!--Next-->
+    <!--</button>-->
+    <!--<button class="button button-positive button-clear no-animation"-->
+            <!--ng-click="startApp()" ng-show="slideIndex == 2">-->
+      <!--Start using MyApp-->
+    <!--</button>-->
+  <!--</ion-nav-buttons>-->
 
-  <!--<ion-slide>-->
-    <!--<ion-content>-->
-      <!--<div class="text-center">-->
-        <!--<h4>Transparent Encryption</h4>-->
-      <!--</div>-->
-    <!--</ion-content>-->
-  <!--</ion-slide>-->
-  <!--<ion-slide>-->
-    <!--<ion-content>LOL2</ion-content>-->
-  <!--</ion-slide>-->
-  <!--<ion-slide>-->
-    <!--<div class="box pink"><h1>PINK</h1></div>-->
-  <!--</ion-slide>-->
-
-
-<!--</ion-slide-box>-->
