@@ -5,7 +5,7 @@ function factory() {
    */
   function isLocalhost() {
     const isFile = document.location.href.startsWith('file:');
-    const cordovaCompiled = !$('body').hasClass('platform-webview');
+    const cordovaCompiled = $('body').hasClass('platform-webview');
     return (isFile && !cordovaCompiled);
   }
 
