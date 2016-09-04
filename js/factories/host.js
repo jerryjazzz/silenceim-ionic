@@ -2,9 +2,11 @@ function factory() {
 
   /**
    * @returns {boolean}
+   * TODO 
    */
   function isLocalhost() {
-    return !$('body').hasClass('platform-webview');
+    // return !$('body').hasClass('platform-webview');
+    return false
   }
 
   return {
