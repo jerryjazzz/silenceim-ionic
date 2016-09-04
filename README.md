@@ -1,5 +1,4 @@
-
-## Cordova dependencies
-```
-cordova plugin add cordova-plugin-inappbrowser
+```bash
+ionic build andorid
+ionic build osx
 ```
