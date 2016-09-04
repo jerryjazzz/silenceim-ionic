@@ -105,6 +105,14 @@ function config($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/about_security.html'
       }
     }
+  }).state('app.about_tutorial', {
+    url: '/about/tutorial',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/about_tutorial.html',
+        controller: 'AboutTutorialCtrl'
+      }
+    }
   });
 
   // Landing + 404
