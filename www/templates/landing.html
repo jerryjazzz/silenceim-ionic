@@ -3,16 +3,26 @@
     <div class="module-window">
       <h4 class="m-b-lg">Create or Join the room</h4>
       <p class="m-b-lg">You have to generate new PGP/AES/RC4 keys on each launch in security purpose.</p>
-      <form ng-submit="submit()" class="m-b-lg">
+
+      <div class="list" ng-hide="connected">
+        <div class="item item-icon-right">
+          <i class="icon">
+            <ion-spinner icon="lines"></ion-spinner>
+          </i>
+          Retrieve connection...
+        </div>
+      </div>
+
+      <form ng-submit="submit()" class="m-b-lg" ng-show="connected">
         <div class="list">
           <label class="item item-input">
             <span class="input-label">Username</span>
-            <input type="text" ng-model="model.username">
+            <input type="text" ng-model="model.userName">
           </label>
 
           <label class="item item-input">
             <span class="input-label">Room</span>
-            <input type="text" ng-model="model.room">
+            <input type="text" ng-model="model.roomName">
           </label>
 
           <label class="item">

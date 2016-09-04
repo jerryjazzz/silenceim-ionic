@@ -8,7 +8,8 @@
     "enigma": "*",
     "sjcl": "^1.0.4",
     "jquery": "^3.1.0",
-    "openpgp": "^2.3.3"
+    "openpgp": "^2.3.3",
+    "socket.io-client": "^1.4.8"
   },
   "resolutions": {
     "jquery": "^3.1.0"

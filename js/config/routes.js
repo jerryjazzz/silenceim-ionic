@@ -6,9 +6,11 @@ function config($stateProvider, $urlRouterProvider) {
     controller: 'AppCtrl'
   }).state('app.landing', {
     url: '/landing',
+    cache: false,
     views: {
       'menuContent': {
-        templateUrl: 'templates/landing.html'
+        templateUrl: 'templates/landing.html',
+        controller: 'LandingCtrl'
       }
     }
   });
