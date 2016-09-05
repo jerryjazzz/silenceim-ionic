@@ -20,8 +20,6 @@ function ctrl($scope, $ionicHistory, $state, $ionicPopup, utils, socket) {
           template: e
         });
       } else {
-        $scope.model = {};
-
         $ionicPopup.alert({
           title: 'Success',
           template: 'Feedback has been sent. We will answer you shortly.'
