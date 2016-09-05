@@ -22,7 +22,6 @@ module.exports = function (shipit) {
         remote: false,
         installFlags: ['--save'],
       },
-      //TODO fix this is not working
       npm: {
         remote: true,
         installArgs: ['--production'],
