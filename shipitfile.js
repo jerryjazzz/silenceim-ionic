@@ -30,6 +30,7 @@ module.exports = function (shipit) {
       },
       shared: {
         overwrite: true,
+        files: '.env',
         dirs: ['node_modules', 'config'],
       }
     },
