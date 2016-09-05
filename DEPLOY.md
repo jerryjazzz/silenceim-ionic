@@ -18,16 +18,6 @@ mkdir ~/www/shared
 
 ```bash
 shipit production deploy
+pm2 add ~/www/shared/config/pm2.json
 ```
 
-## PM2 config:
-```js
-{
-  "apps": [{
-    "name": "app",
-    "script": "./app.js",
-    "cwd": "/home/user/www/current",
-    "node_args": "--harmony"
-  }]
-}
-```

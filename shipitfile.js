@@ -7,6 +7,7 @@ module.exports = function (shipit) {
   require('shipit-deploy')(shipit);
   require('shipit-shared')(shipit);
   require('shipit-bower')(shipit);
+  require('shipit-npm')(shipit); // shipit production npm:init npm:install
 
   shipit.initConfig({
     default: {
@@ -19,20 +20,23 @@ module.exports = function (shipit) {
       deleteOnRollback: false,
       shared: {
         overwrite: true,
-        dirs: ['node_modules'],
+        dirs: ['node_modules', 'config'],
       },
       bower: {
         remote: false,
         installFlags: ['--save'],
-        // triggerEvent: 'init'
       }
+      //TODO fix this is not working
+      // npm: {
+      //   triggerEvent: 'shared:end'
+      // }
     },
     production: {
       servers: `${DEPLOY_USER}@silenceim.com`
     }
   });
 
-  // shipit.on('published', function () {
-  //   shipit.remote('pm2 restart app');
-  // });
+  shipit.on('published', function() {
+    shipit.remote('pm2 restart app');
+  });
 };

@@ -1,0 +1,8 @@
+{
+  "apps": [{
+    "name": "app",
+    "script": "./app.js",
+    "cwd": "/home/user/www/current",
+    "node_args": "--harmony"
+  }]
+}
