@@ -3,7 +3,7 @@ module.exports = function(io, app) {
   'use strict';
 
   io.on('connection', function (socket) {
-    socket.on('feedback:send', function({email='anonymous', body}, fn) {
+    socket.on('feedback:send', function({body, platform, version, email='anonymous', device='browser?'}, fn) {
       const cb = fn || function() {};
 
       if (!body) {
@@ -16,8 +16,12 @@ module.exports = function(io, app) {
           username: 'Feedback',
           text: body,
           fields: {
-            email: email,
-            ip: socket.handshake.headers['x-forwarded-for'] || socket.handshake.address
+            email,
+            device,
+            platform,
+            version,
+            ip: socket.handshake.headers['x-forwarded-for'] || socket.handshake.address,
+            userAgent: socket.request.headers['user-agent']
           }
         });
 

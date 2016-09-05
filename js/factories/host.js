@@ -1,6 +1,7 @@
 function factory() {
 
   /**
+   * TODO rename to isDevelopment() or like this
    * @returns {boolean}
    */
   function isLocalhost() {

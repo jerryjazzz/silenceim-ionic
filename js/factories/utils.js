@@ -12,8 +12,17 @@ function factory() {
     }
   }
 
+  /**
+   * @param object {*}
+   * @returns {object, undefined}
+   */
+  function presence(object) {
+    return isPresent(object) ? object : undefined;
+  }
+
   return {
-    isPresent
+    isPresent,
+    presence
   }
 }
 

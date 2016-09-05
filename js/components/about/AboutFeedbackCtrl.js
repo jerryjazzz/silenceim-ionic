@@ -1,10 +1,17 @@
-function ctrl($scope, $ionicHistory, $state, $ionicPopup, socket) {
+function ctrl($scope, $ionicHistory, $state, $ionicPopup, utils, socket) {
+
+  const metaInfo = {
+    device: utils.presence(ionic.Platform.device()),
+    platform: ionic.Platform.platform(),
+    version: ionic.Platform.version(),
+  };
+
   $scope.model = {};
 
   $scope.submit = function() {
     $scope.model.loading = true;
 
-    socket.emit('feedback:send', $scope.model, function(_, e) {
+    socket.emit('feedback:send', $.extend($scope.model, metaInfo), function(_, e) {
       $scope.model.loading = false;
 
       if (e) {
@@ -27,4 +34,4 @@ function ctrl($scope, $ionicHistory, $state, $ionicPopup, socket) {
   };
 }
 
-angular.module('starter.controllers').controller('AboutFeedbackCtrl', ['$scope', '$ionicHistory', '$state', '$ionicPopup', 'socket', ctrl]);
+angular.module('starter.controllers').controller('AboutFeedbackCtrl', ['$scope', '$ionicHistory', '$state', '$ionicPopup', 'utils', 'socket', ctrl]);
