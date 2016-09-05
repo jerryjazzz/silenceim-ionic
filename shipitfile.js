@@ -18,18 +18,19 @@ module.exports = function (shipit) {
       ignores: ['.git', 'node_modules/*', 'tmp/*'],
       keepReleases: 5,
       deleteOnRollback: false,
-      shared: {
-        overwrite: true,
-        dirs: ['node_modules', 'config'],
-      },
       bower: {
         remote: false,
         installFlags: ['--save'],
       },
       //TODO fix this is not working
       npm: {
-        installArgs: ['--production']
-        // triggerEvent: 'shared:end'
+        remote: true,
+        installArgs: ['--production'],
+        triggerEvent: 'sharedEnd'
+      },
+      shared: {
+        overwrite: true,
+        dirs: ['node_modules', 'config'],
       }
     },
     production: {
