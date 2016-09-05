@@ -1,0 +1,48 @@
+<ion-view view-title="Feedback" class="ion-view">
+  <ion-content class="ion-content-decorated">
+    <div class="module-window">
+      <h4 class="m-b-lg">Give Us Feedback</h4>
+      <p class="m-b-lg">Let us know how we can improve your SilenceIM experience.</p>
+
+      <div class="list" ng-hide="CONNECTED">
+        <div class="item item-icon-right">
+          <i class="icon">
+            <ion-spinner icon="lines"></ion-spinner>
+          </i>
+          Retrieve connection...
+        </div>
+      </div>
+
+      <form ng-submit="submit()" class="m-b-lg" ng-show="CONNECTED">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="text" ng-model="model.email">
+          </label>
+
+          <label class="item item-input">
+            <!--<span class="input-label">Room</span>-->
+            <textarea ng-model="model.body" placeholder="Feedback" rows="8" cols="10" style="resize: none"></textarea>
+          </label>
+
+          <label class="item">
+            <button class="button button-block button-positive" type="submit">Join</button>
+          </label>
+        </div>
+      </form>
+
+      <table class="full-width color-muted">
+        <tr>
+          <td class="p-r-base">
+            <i class="ion-alert-circled"></i>
+          </td>
+          <td class="full-width">
+            <p class="m-b-0">
+              PLEASE NOTE THAT YOUR FEEDBACK WILL SEND AS PLAINTEXT OVER HTTPS WITHOUT ANY ENCRYPTION
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </ion-content>
+</ion-view>

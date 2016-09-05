@@ -13,6 +13,7 @@ app.set('environment', process.env.NODE_ENV || 'development');
  * Initializers
  */
 require('./backend/initializers/winston')(app);
+require('./backend/initializers/slack')(app);
 
 /**
  * Client will send a request to
@@ -25,4 +26,5 @@ const io = socket(app.listen(app.get('port'), function() {
 
 io.set('transports', ['websocket']);
 
+require('./backend/sockets/feedback')(io, app);
 require('./backend/sockets/room')(io);

@@ -93,6 +93,15 @@ function config($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/about_license.html'
       }
     }
+  }).state('app.about_feedback', {
+    url: '/about/feedback',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/about_feedback.html',
+        controller: 'AboutFeedbackCtrl'
+      }
+    }
   }).state('app.about_vendors', {
     url: '/about/vendors',
     views: {
