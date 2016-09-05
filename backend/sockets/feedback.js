@@ -17,7 +17,7 @@ module.exports = function(io, app) {
           text: body,
           fields: {
             email: email,
-            ip: socket.handshake.headers['X-Forwarded-For'] || socket.handshake.address
+            ip: socket.handshake.headers['x-forwarded-for'] || socket.handshake.address
           }
         });
 
