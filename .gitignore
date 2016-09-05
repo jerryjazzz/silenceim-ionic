@@ -3,4 +3,5 @@ platforms/
 plugins/
 www/lib/
 tmp/
+log/*.log
 .env
