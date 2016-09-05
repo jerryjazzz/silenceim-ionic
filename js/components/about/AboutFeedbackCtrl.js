@@ -2,7 +2,11 @@ function ctrl($scope, $ionicHistory, $state, $ionicPopup, socket) {
   $scope.model = {};
 
   $scope.submit = function() {
+    $scope.model.loading = true;
+
     socket.emit('feedback:send', $scope.model, function(_, e) {
+      $scope.model.loading = false;
+
       if (e) {
         $ionicPopup.alert({
           title: 'Warning',

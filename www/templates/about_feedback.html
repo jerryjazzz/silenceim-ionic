@@ -13,7 +13,7 @@
         </div>
       </div>
 
-      <form ng-submit="submit()" class="m-b-lg" ng-show="CONNECTED">
+      <form ng-submit="submit()" class="m-b-lg" ng-class="{'loading-block': model.loading}" ng-show="CONNECTED">
         <div class="list">
           <label class="item item-input">
             <span class="input-label">Email</span>
