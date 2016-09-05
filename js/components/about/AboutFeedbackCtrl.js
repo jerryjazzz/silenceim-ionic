@@ -1,4 +1,4 @@
-function ctrl($scope, $ionicPopup, socket) {
+function ctrl($scope, $ionicHistory, $state, $ionicPopup, socket) {
   $scope.model = {};
 
   $scope.submit = function() {
@@ -15,9 +15,12 @@ function ctrl($scope, $ionicPopup, socket) {
           title: 'Success',
           template: 'Feedback has been sent. We will answer you shortly.'
         });
+
+        $ionicHistory.nextViewOptions({disableBack: true});
+        $state.go('app.about');
       }
     })
   };
 }
 
-angular.module('starter.controllers').controller('AboutFeedbackCtrl', ['$scope', '$ionicPopup', 'socket', ctrl]);
+angular.module('starter.controllers').controller('AboutFeedbackCtrl', ['$scope', '$ionicHistory', '$state', '$ionicPopup', 'socket', ctrl]);
