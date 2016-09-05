@@ -5,7 +5,6 @@ function ctrl($scope, $ionicPopup, roomIO) {
     userName: ''
   };
 
-
   $scope.submit = function() {
     $scope.model.loading = true;
 

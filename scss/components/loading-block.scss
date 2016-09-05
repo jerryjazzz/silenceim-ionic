@@ -1,16 +1,23 @@
-@keyframes loadingBlockAnimation {
-  0% {
-    -webkit-transform: scale(0);
+@keyframes loadingBlockThrobberAnimation {
+  from {
     transform: scale(0);
   }
-  100% {
-    -webkit-transform: scale(1);
+  to {
     transform: scale(1);
     opacity: 0;
   }
 }
 
+@keyframes loadingBlockFadeInAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
 .loading-block {
+  /* Wait to prevent blinking on short server reply */
+  $delay: .6s;
+
   position: relative;
 
   &:before {
@@ -23,6 +30,8 @@
     background: rgba(#FFF, .9);
     z-index: 3;
     margin: -1px;
+    opacity: 0;
+    animation: loadingBlockFadeInAnimation .2s $delay forwards ease-in-out;
   }
 
   &:after {
@@ -41,6 +50,7 @@
     color: #FFF;
     text-align: center;
     z-index: 4;
-    animation: loadingBlockAnimation .8s infinite ease-in-out;
+    transform: scale(0);
+    animation: loadingBlockThrobberAnimation .8s $delay infinite ease-in-out;
   }
 }
