@@ -25,11 +25,12 @@ module.exports = function (shipit) {
       bower: {
         remote: false,
         installFlags: ['--save'],
-      }
+      },
       //TODO fix this is not working
-      // npm: {
-      //   triggerEvent: 'shared:end'
-      // }
+      npm: {
+        installArgs: ['--production']
+        // triggerEvent: 'shared:end'
+      }
     },
     production: {
       servers: `${DEPLOY_USER}@silenceim.com`
