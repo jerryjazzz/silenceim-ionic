@@ -1,15 +1,9 @@
-function ctrl($scope, $ionicPopup, socket, roomIO) {
+function ctrl($scope, $ionicPopup, roomIO) {
   // TODO generate random names
   $scope.model = {
     roomName: '',
     userName: ''
   };
-
-  const connSub = socket.connPub.subscribe(function(connected) {
-    $scope.$evalAsync(function() {
-      $scope.connected = connected;
-    });
-  });
 
   $scope.submit = function() {
     roomIO.join($scope.model, function(_, e) {
@@ -19,10 +13,6 @@ function ctrl($scope, $ionicPopup, socket, roomIO) {
       });
     })
   };
-
-  $scope.$on('$destroy', function() {
-    connSub.dispose();
-  });
 }
 
-angular.module('starter.controllers').controller('LandingCtrl', ['$scope', '$ionicPopup', 'socket', 'roomIO', ctrl]);
+angular.module('starter.controllers').controller('LandingCtrl', ['$scope', '$ionicPopup', 'roomIO', ctrl]);
