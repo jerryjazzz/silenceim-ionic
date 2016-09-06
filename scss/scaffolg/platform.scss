@@ -1,0 +1,8 @@
+body:not(.platform-browser)  {
+  /*
+   * Show only in web-browser
+   */
+  .platform-app-hidden {
+    display: none;
+  }
+}
