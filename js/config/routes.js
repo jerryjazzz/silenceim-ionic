@@ -15,6 +15,17 @@ function config($stateProvider, $urlRouterProvider) {
     }
   });
 
+  // IM
+  $stateProvider.state('app.im', {
+    url: '/@',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/im.html',
+        controller: 'ImCtrl'
+      }
+    }
+  });
+
   // Cipher settings
   $stateProvider.state('app.rc4', {
     url: '/rc4',

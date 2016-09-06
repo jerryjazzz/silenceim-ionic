@@ -1,6 +1,9 @@
-module.exports = function(io, app) {
+module.exports = function(app) {
 
   'use strict';
+
+  const io = app.get('io');
+  const slack = app.get('slack');
 
   io.on('connection', function (socket) {
     socket.on('feedback:send', function({body, platform, version, email='anonymous', device='browser?'}, fn) {
@@ -9,8 +12,7 @@ module.exports = function(io, app) {
       if (!body) {
         cb(null, 'Your Feedback is empty');
       } else {
-
-        app.get('slack').send({
+        slack.send({
           channel: '#feedbacks',
           icon_emoji: ':left_speech_bubble:',
           username: 'Feedback',

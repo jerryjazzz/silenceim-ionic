@@ -26,5 +26,12 @@ const io = socket(app.listen(app.get('port'), function() {
 
 io.set('transports', ['websocket']);
 
-require('./backend/sockets/feedback')(io, app);
-require('./backend/sockets/room')(io);
+// Set app
+app.set('io', io);
+
+// Observers
+require('./backend/observers/socket_room')(app);
+
+// Sockets
+require('./backend/sockets/feedback')(app);
+require('./backend/sockets/room')(app);
