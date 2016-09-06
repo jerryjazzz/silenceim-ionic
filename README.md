@@ -8,7 +8,7 @@ ionic build osx
 
 SilenceIM uses [**AES**](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) Rijndael 256 -> [**RC4**](https://en.wikipedia.org/wiki/RC4) (for symmetric encryption) -> [**PGP**](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) 4096 bit (for asymmetric encryption) in client side (browser) and transfers your messages to companions via HTTPS(wss) without store or any processing in a server side.
 
-# Advantages over Cryptocat
+### Advantages over Cryptocat
 
 | Feature        | SilenceIM           | Cryptocat | Notes |
 | ------------- |:------------- | ----- | ----- |
