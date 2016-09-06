@@ -54,6 +54,16 @@
     padding-top: map-get($indents, $indent);
     padding-bottom: map-get($indents, $indent);
   }
+
+  .p-x-0 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .p-y-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 
 .m-b-0 {

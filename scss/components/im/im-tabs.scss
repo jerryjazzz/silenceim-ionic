@@ -1,0 +1,14 @@
+#im-tabs {
+  .tab-nav.tabs {
+    background: transparent;
+    border-top: rgba(#000, .1) 1px solid!important;
+  }
+
+  .tabs {
+    color: #222;
+  }
+
+  a.tab-item-active {
+    color: map-get($coloration, air);
+  }
+}

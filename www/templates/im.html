@@ -1,10 +1,19 @@
-<ion-view view-title="IM" class="ion-view">
-  <ion-nav-buttons side="right">
-    <button class="button button-positive button-clear no-animation" ng-click="leave()">
-      Leave
-    </button>
-  </ion-nav-buttons>
+<ion-view class="ion-view">
+  <ion-tabs class="tabs-icon-top tabs-positive" id="im-tabs">
+    <ion-tab title="Chat" icon="ion-ios-chatbubble" href="#/app/@/chat">
+      <ion-nav-view name="chat-tab"></ion-nav-view>
+    </ion-tab>
 
-  <ion-content>
-  </ion-content>
+    <ion-tab title="Users" icon="ion-person-stalker" href="#/app/@/users">
+      <ion-nav-view name="users-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Room" icon="ion-pound" href="#/app/@/room">
+      <ion-nav-view name="room-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Log" icon="ion-code-working" href="#/tab/about">
+      <ion-nav-view name="about-tab"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
 </ion-view>

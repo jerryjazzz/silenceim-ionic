@@ -48,7 +48,8 @@ function factory(settings, socket) {
   return {
     join,
     leave,
-    isJoined
+    isJoined,
+    getCredentials
   }
 }
 

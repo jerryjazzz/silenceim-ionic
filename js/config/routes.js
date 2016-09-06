@@ -18,11 +18,37 @@ function config($stateProvider, $urlRouterProvider) {
   // IM
   $stateProvider.state('app.im', {
     url: '/@',
+    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/im.html',
         controller: 'ImCtrl'
       }
+    }
+  }).state('app.im.chat', {
+    url: '/chat',
+    cache: false,
+    views: {
+      'chat-tab': {
+        templateUrl: 'templates/im_chat_tab.html',
+      },
+    }
+  }).state('app.im.users', {
+    url: '/users',
+    cache: false,
+    views: {
+      'users-tab': {
+        templateUrl: 'templates/im_users_tab.html',
+      },
+    }
+  }).state('app.im.room', {
+    url: '/room',
+    cache: false,
+    views: {
+      'room-tab': {
+        templateUrl: 'templates/im_room_tab.html',
+        controller: 'ImRoomCtrl'
+      },
     }
   });
 

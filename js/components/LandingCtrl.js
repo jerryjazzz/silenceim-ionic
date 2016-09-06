@@ -11,7 +11,7 @@ function ctrl($scope, $ionicHistory, $state, $ionicPopup, roomIO) {
    */
   function redirectToIm() {
     $ionicHistory.nextViewOptions({disableBack: true});
-    $state.go('app.im');
+    $state.go('app.im.chat');
   }
 
   $scope.submit = function() {

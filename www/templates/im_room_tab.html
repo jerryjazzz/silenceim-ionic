@@ -1,0 +1,42 @@
+<ion-view view-title="Room" class="ion-view">
+  <ion-content>
+    <div class="module-window p-y-0 p-x-0">
+      <div class="list">
+        <div class="item item-divider">
+          Channel
+        </div>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Room Name</span>
+          <input type="text" ng-value="room.roomName" readonly="readonly" style="background: transparent">
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">User Name</span>
+          <input type="text" ng-value="room.roomName" readonly="readonly" style="background: transparent">
+        </label>
+
+        <div class="item item-divider">
+          My Encryption
+        </div>
+        <ion-item class="item-icon-left">
+          <i class="icon ion-checkmark-circled "></i>
+          PGP Encryption
+          <!--<p class="m-t-sm">To enable PGP encryption provide <a class="text-decoration-none" href="#/app/pgp/buddy-public">buddy public key</a></p>-->
+        </ion-item>
+
+        <ion-item class="item-icon-left">
+          <i class="icon ion-checkmark-circled"></i>
+          AES Encryption
+          <!--<p class="m-t-sm">To enable AES encryption generate <a class="text-decoration-none" href="#/app/aes">AES key</a></p>-->
+        </ion-item>
+
+        <ion-item class="item-icon-left">
+          <i class="icon ion-checkmark-circled"></i>
+          RC4 Encryption
+          <!--<p class="m-t-sm">To enable AES encryption generate <a class="text-decoration-none" href="#/app/aes">AES key</a></p>-->
+        </ion-item>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
