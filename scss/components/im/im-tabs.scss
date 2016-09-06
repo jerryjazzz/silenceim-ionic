@@ -1,14 +1,16 @@
 #im-tabs {
   .tab-nav.tabs {
+    padding-top: 0;
     background: transparent;
     border-top: rgba(#000, .1) 1px solid!important;
   }
 
-  .tabs {
+  a.tab-item {
     color: #222;
   }
 
   a.tab-item-active {
     color: map-get($coloration, air);
+    border-top: map-get($coloration, air) 1px solid;
   }
 }
