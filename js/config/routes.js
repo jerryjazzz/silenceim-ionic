@@ -78,6 +78,16 @@ function config($stateProvider, $urlRouterProvider) {
     }
   });
 
+  // Mobile download
+  $stateProvider.state('app.android', {
+    url: '/android',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/android.html'
+      }
+    }
+  });
+
   // About
   $stateProvider.state('app.about', {
     url: '/about',
