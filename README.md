@@ -16,6 +16,8 @@ SilenceIM uses [**AES**](https://en.wikipedia.org/wiki/Advanced_Encryption_Stand
 | No history     | **true** | false | Cryptocat saves messages in a server for a 30 minutes |
 | [End-to-end encryption](https://en.wikipedia.org/wiki/End-to-end_encryption) | **full** | partial | |
 | Transparency | **true** | false | •
-| Web client | **true** | false | |
+| Web | **true** | false | |
+| Mobile | **true** | false | |
+| Desktop | true | true | |
 
 * Unlike SilenceIM, where you can choose cryptography algorithms & exchange passwords/keys manually, Cryptocat password exchange is automatic and based on Diffie-Hellman protocol, which is not transparent for user and causes a [potetntial risk](https://tobtu.com/decryptocat.php).
