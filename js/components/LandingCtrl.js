@@ -1,4 +1,4 @@
-function ctrl($scope, $ionicHistory, $state, $ionicPopup, roomIO) {
+function ctrl($scope, $ionicHistory, $state, roomIO) {
   // TODO generate random names
   $scope.model = {
     roomName: '',
@@ -20,7 +20,7 @@ function ctrl($scope, $ionicHistory, $state, $ionicPopup, roomIO) {
     roomIO.join($scope.model).then(function() {
       redirectToIm();
     }, function(e) {
-      $ionicPopup.alert({ title: 'Warning', template: e });
+      toastr.warning(e);
     }).then(function() {
       $scope.$evalAsync(function() {
         $scope.model.loading = false;
@@ -29,4 +29,4 @@ function ctrl($scope, $ionicHistory, $state, $ionicPopup, roomIO) {
   };
 }
 
-angular.module('starter.controllers').controller('LandingCtrl', ['$scope', '$ionicHistory', '$state', '$ionicPopup', 'roomIO', ctrl]);
+angular.module('starter.controllers').controller('LandingCtrl', ['$scope', '$ionicHistory', '$state', 'roomIO', ctrl]);

@@ -1,4 +1,4 @@
-function ctrl($scope, $ionicHistory, $state, $ionicPopup, utils, socket) {
+function ctrl($scope, $ionicHistory, $state, utils, socket) {
 
   const metaInfo = {
     device: utils.presence(ionic.Platform.device()),
@@ -15,16 +15,9 @@ function ctrl($scope, $ionicHistory, $state, $ionicPopup, utils, socket) {
       $scope.model.loading = false;
 
       if (e) {
-        $ionicPopup.alert({
-          title: 'Warning',
-          template: e
-        });
+        toastr.warning(e);
       } else {
-        $ionicPopup.alert({
-          title: 'Success',
-          template: 'Feedback has been sent. We will answer you shortly.'
-        });
-
+        toastr.success('Feedback has been sent');
         $ionicHistory.nextViewOptions({disableBack: true});
         $state.go('app.about');
       }
@@ -32,4 +25,4 @@ function ctrl($scope, $ionicHistory, $state, $ionicPopup, utils, socket) {
   };
 }
 
-angular.module('starter.controllers').controller('AboutFeedbackCtrl', ['$scope', '$ionicHistory', '$state', '$ionicPopup', 'utils', 'socket', ctrl]);
+angular.module('starter.controllers').controller('AboutFeedbackCtrl', ['$scope', '$ionicHistory', '$state', 'utils', 'socket', ctrl]);
