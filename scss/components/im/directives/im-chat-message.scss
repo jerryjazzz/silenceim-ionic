@@ -1,3 +1,9 @@
 .im-chat-message {
-  margin: map-get($indents, md) 0;
+  margin: map-get($indents, md) map-get($indents, md);
+
+  &:after {
+    content: ' ';
+    display: block;
+    clear: both;
+  }
 }

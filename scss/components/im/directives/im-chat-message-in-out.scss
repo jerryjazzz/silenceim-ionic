@@ -1,0 +1,28 @@
+.im-chat-message-in, .im-chat-message-out  {
+  .balloon {
+    padding: map-get($indents, md) map-get($indents, lg);
+    color: #111;
+    position: relative;
+    border-radius: 5px;
+    word-break: break-all;
+  }
+
+  .message {
+    @include media-breakpoint-up(md) {
+      max-width: 70%;
+    }
+  }
+}
+
+.im-chat-message-out {
+  $bg: #edf1f4;
+
+  .message {
+    float: right;
+  }
+
+  .balloon {
+    background: $bg;
+  }
+}
+
