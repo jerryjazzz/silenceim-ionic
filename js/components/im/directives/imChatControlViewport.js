@@ -15,7 +15,7 @@ function directive(Message, utils, chatIO) {
 
       function clickBtn() {
         const text = $textarea.val();
-        
+
         if (utils.isPresent(text)) {
           submit(text);
           $textarea.val('');

@@ -8,11 +8,10 @@
   a.tab-item {
     color: #222;
     border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
   }
 
   a.tab-item.tab-item-active {
     color: map-get($coloration, air);
-    border-top-color: map-get($coloration, air);
+    border-color: map-get($coloration, air);
   }
 }
