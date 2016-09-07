@@ -120,14 +120,15 @@ function config($stateProvider, $urlRouterProvider) {
     url: '/android',
     views: {
       'menuContent': {
-        templateUrl: 'templates/android.html'
+        templateUrl: 'templates/download/android.html',
+        controller: 'DownloadAndroidCtrl'
       }
     }
   }).state('app.blackberry', {
     url: '/blackberry',
     views: {
       'menuContent': {
-        templateUrl: 'templates/blackberry.html'
+        templateUrl: 'templates/download/blackberry.html'
       }
     }
   });

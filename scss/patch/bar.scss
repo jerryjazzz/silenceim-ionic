@@ -23,8 +23,12 @@
   }
 
   .header-item {
-    button {
+    .button, a {
       color: #FFF;
+    }
+
+    a {
+      line-height: 40px;
     }
   }
 }
