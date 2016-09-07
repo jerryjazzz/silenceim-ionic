@@ -12,7 +12,9 @@ function ctrl($scope, $ionicHistory, $state, utils, socket) {
     $scope.model.loading = true;
 
     socket.emit('feedback:send', $.extend($scope.model, metaInfo), function(_, e) {
-      $scope.model.loading = false;
+      $scope.$evalAsync(function() {
+        $scope.model.loading = false;
+      });
 
       if (e) {
         toastr.warning(e);
