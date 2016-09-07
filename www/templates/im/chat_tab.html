@@ -4,4 +4,12 @@
       Leave
     </button>
   </ion-nav-buttons>
+
+  <div class="im-chat-viewport" ng-hide="CONNECTED">
+    <div class="im-chat-connecting">
+      <bdi>
+        <ion-spinner icon="lines"></ion-spinner>
+      </bdi>
+    </div>
+  </div>
 </ion-view>

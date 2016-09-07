@@ -30,7 +30,7 @@ function config($stateProvider, $urlRouterProvider) {
     cache: false,
     views: {
       'chat-tab': {
-        templateUrl: 'templates/im_chat_tab.html',
+        templateUrl: 'templates/im/chat_tab.html',
       },
     }
   }).state('app.im.users', {
@@ -38,7 +38,7 @@ function config($stateProvider, $urlRouterProvider) {
     cache: false,
     views: {
       'users-tab': {
-        templateUrl: 'templates/im_users_tab.html',
+        templateUrl: 'templates/im/users_tab.html',
       },
     }
   }).state('app.im.room', {
@@ -46,7 +46,7 @@ function config($stateProvider, $urlRouterProvider) {
     cache: false,
     views: {
       'room-tab': {
-        templateUrl: 'templates/im_room_tab.html',
+        templateUrl: 'templates/im/room_tab.html',
         controller: 'ImRoomCtrl'
       },
     }
