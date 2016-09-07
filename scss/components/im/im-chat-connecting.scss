@@ -5,10 +5,14 @@
   top: 0;
   bottom: 0;
   background: rgba(#FFF, .6);
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
   align-content: center;
+
+  &.active {
+    display: flex;
+  }
 
   bdi {
     display: block;

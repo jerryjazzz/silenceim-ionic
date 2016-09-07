@@ -6,6 +6,7 @@ function ctrl($scope, $state, storage, socket) {
   const connSub = socket.connPub.subscribe(function(connected) {
     $scope.$evalAsync(function() {
       $scope.CONNECTED = connected;
+      $scope.DISCONNECTED = !connected;
     });
   });
 
