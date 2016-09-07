@@ -7,10 +7,6 @@
     align-content: center;
     align-items: center;
   }
-
-  h3 {
-    color: #FFF;
-  }
 }
 
 .download-target {
@@ -24,16 +20,4 @@
   width: 100%;
   max-width: 260px;
   height: auto;
-}
-
-
-/***/
-.download-android {
-  background: #000 url('../img/download/android.bg.jpg?') center no-repeat;
-  background-size: 190%;
-}
-
-.download-blackberry {
-  background: #000 url('../img/download/blackberry.bg.jpg?3') center no-repeat;
-  background-size: 190%;
 }
