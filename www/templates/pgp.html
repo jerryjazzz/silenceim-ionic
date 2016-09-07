@@ -7,7 +7,7 @@
         You may generate a new Keypair or provide you own keys here.
       </p>
 
-      <ion-list>
+      <ion-list class="m-b-0">
         <ion-item href="#/app/pgp/my-private" class="item-icon-right">
           <i class="icon ion-android-lock"></i>
           <span class="color-success" ng-show="myPrivateKey">•</span>
@@ -23,11 +23,11 @@
           <span class="color-success" ng-show="buddyPublicKey">•</span>
           Buddy's Public Key
         </ion-item>
-        <ion-item>
-          <a class="button button-outline button-block button-positive" href="#/app/pgp/generate">Generate</a>
-        </ion-item>
       </ion-list>
 
+      <div class="m-t-lg"></div>
+
+      <a class="button button-outline button-block button-positive" href="#/app/pgp/generate">Generate</a>
     </div>
   </ion-content>
 </ion-view>
