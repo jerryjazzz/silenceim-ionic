@@ -1,4 +1,4 @@
-<ion-view view-title="IM" class="ion-view">
+<ion-view view-title="IM" class="ion-view" style="background:#FFF;">
   <ion-nav-buttons side="right">
     <button class="button button-positive button-clear no-animation" ng-click="leave()">
       Leave
@@ -6,6 +6,9 @@
   </ion-nav-buttons>
 
   <div class="im-chat-viewport">
+
+    <div class="im-chat-messages-viewport" id="messages">
+    </div>
 
     <div class="im-chat-control-viewport">
       <textarea placeholder="Type your message here..." class="p-x-md p-t-md"></textarea>

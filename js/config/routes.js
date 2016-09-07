@@ -31,6 +31,7 @@ function config($stateProvider, $urlRouterProvider) {
     views: {
       'chat-tab': {
         templateUrl: 'templates/im/chat_tab.html',
+        controller: 'ImChatCtrl'
       },
     }
   }).state('app.im.users', {
