@@ -123,6 +123,13 @@ function config($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/android.html'
       }
     }
+  }).state('app.blackberry', {
+    url: '/blackberry',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/blackberry.html'
+      }
+    }
   });
 
   // About
