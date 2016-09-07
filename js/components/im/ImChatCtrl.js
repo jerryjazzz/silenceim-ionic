@@ -6,8 +6,6 @@ function ctrl($scope, $compile, Message, chatIO) {
 `;
     const $html = $($compile(html)($scope.$new()));
 
-    console.log($html);
-
     if (animate) {
       $html.addClass('animate');
       $html.css({display: 'none', opacity: 0});
