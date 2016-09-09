@@ -6,6 +6,32 @@ function factory(host, apiBackendVersion) {
 
   const connPub = new Rx.BehaviorSubject(false);
 
+  var emitPub = Rx.Observable.create(function(observer) {
+    /**
+     * Redefine original socket method
+     * it is called on system events like connect/disconnect
+     */
+    const emit = socket.emit;
+
+    socket.emit = function() {
+      observer.onNext(arguments);
+      emit.apply(this, arguments);
+    };
+  });
+
+  var oneventPub = Rx.Observable.create(function(observer) {
+    /**
+     * Redefine original socket method
+     * it is called on cli custom events
+     */
+    const onevent = socket.onevent;
+
+    socket.onevent = function() {
+      observer.onNext(arguments);
+      onevent.apply(this, arguments);
+    };
+  });
+
   socket.on('connect', function() {
     connPub.onNext(true);
   });
@@ -16,6 +42,8 @@ function factory(host, apiBackendVersion) {
 
   return {
     connPub,
+    emitPub,
+    oneventPub,
 
     on: function() {
       socket.on(...arguments);

@@ -51,6 +51,14 @@ function config($stateProvider, $urlRouterProvider) {
         controller: 'ImRoomCtrl'
       },
     }
+  }).state('app.im.log', {
+    url: '/log',
+    cache: false,
+    views: {
+      'log-tab': {
+        templateUrl: 'templates/im/log_tab.html',
+      },
+    }
   });
 
   // Cipher settings

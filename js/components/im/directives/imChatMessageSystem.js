@@ -1,11 +1,20 @@
 function directive(chatIO) {
+
+  const TEMPLATE = `
+<div class="message"></div>
+`;
+
+
   return {
     restrict: 'C',
 
     link: function($scope, element) {
       const $el = $(element);
       const message = chatIO.find($el.data('id'));
-      $el.text(message.body);
+
+      const $html = $(TEMPLATE);
+      $html.text(message.body);
+      $el.html($html);
     }
   };
 }

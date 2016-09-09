@@ -30,7 +30,7 @@ function ctrl($scope, $compile, Message, chatIO) {
   });
 
   if (!chatIO.messages.length) {
-    chatIO.push(new Message({body: 'You may change settings on the fly', kind: 'system'}));
+    chatIO.push(new Message({body: 'You may change settings on the fly. Tap on message to see the original', kind: 'system'}));
   }
 
   $scope.$on('$destroy', function(){
