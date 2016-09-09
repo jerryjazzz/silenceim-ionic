@@ -6,7 +6,7 @@ module.exports = function(app) {
   const slack = app.get('slack');
 
   io.on('connection', function (socket) {
-    socket.on('feedback:send', function({body, platform, version, email='anonymous', device='browser?'}, fn) {
+    socket.on('feedback:send', function({body, email='anonymous'}, fn) {
       const cb = fn || function() {};
 
       if (!body) {
@@ -19,11 +19,10 @@ module.exports = function(app) {
           text: body,
           fields: {
             email,
-            device,
-            platform,
-            version,
-            ip: socket.handshake.headers['x-forwarded-for'] || socket.handshake.address,
-            userAgent: socket.request.headers['user-agent']
+            platform: socket.meta.platform,
+            apiVersion: socket.meta.apiVersion,
+            ip: socket.meta.ip,
+            userAgent: socket.meta.userAgent
           }
         });
 

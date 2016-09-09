@@ -1,17 +1,11 @@
-function ctrl($scope, $ionicHistory, $state, utils, socket) {
-
-  const metaInfo = {
-    device: utils.presence(ionic.Platform.device()),
-    platform: ionic.Platform.platform(),
-    version: ionic.Platform.version(),
-  };
+function ctrl($scope, $ionicHistory, $state, socket) {
 
   $scope.model = {};
 
   $scope.submit = function() {
     $scope.model.loading = true;
 
-    socket.emit('feedback:send', $.extend($scope.model, metaInfo), function(_, e) {
+    socket.emit('feedback:send', $scope.model, function(_, e) {
       $scope.$evalAsync(function() {
         $scope.model.loading = false;
       });
@@ -27,4 +21,4 @@ function ctrl($scope, $ionicHistory, $state, utils, socket) {
   };
 }
 
-angular.module('starter.controllers').controller('AboutFeedbackCtrl', ['$scope', '$ionicHistory', '$state', 'utils', 'socket', ctrl]);
+angular.module('starter.controllers').controller('AboutFeedbackCtrl', ['$scope', '$ionicHistory', '$state', 'socket', ctrl]);

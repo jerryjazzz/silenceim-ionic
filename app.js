@@ -8,6 +8,7 @@ const app = express();
 
 app.set('port', process.env.PORT);
 app.set('environment', process.env.NODE_ENV || 'development');
+app.set('apiVersion', 1.0);
 
 /**
  * Initializers
@@ -29,8 +30,11 @@ io.set('transports', ['websocket']);
 // Set app
 app.set('io', io);
 
+// Middleware
+require('./backend/sockets/middleware/meta')(app);
+
 // Observers
-require('./backend/observers/socket_room')(app);
+require('./backend/sockets/observers/socket_room')(app);
 
 // Sockets
 require('./backend/sockets/feedback')(app);

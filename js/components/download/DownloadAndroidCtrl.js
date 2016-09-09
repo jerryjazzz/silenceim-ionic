@@ -1,5 +1,5 @@
-function ctrl($scope, marketURL) {
-  $scope.url = marketURL.android;
+function ctrl($scope, references) {
+  $scope.url = references.googlePlay;
 }
 
-angular.module('starter.controllers').controller('DownloadAndroidCtrl', ['$scope', 'marketURL', ctrl]);
+angular.module('starter.controllers').controller('DownloadAndroidCtrl', ['$scope', 'references', ctrl]);

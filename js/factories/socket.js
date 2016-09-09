@@ -1,8 +1,8 @@
 
-function factory(host) {
+function factory(host, apiBackendVersion) {
 
   const endpont = host.isLocalhost() ? 'http://localhost:5000' : 'https://silenceim.com';
-  const socket = io.connect(endpont, { transports: ['websocket'], path: '/socket-endpoint' });
+  const socket = io.connect(endpont, { query: `apiVersion=${apiBackendVersion}&platform=${ionic.Platform.platform()}`, transports: ['websocket'], path: '/socket-endpoint' });
 
   const connPub = new Rx.BehaviorSubject(false);
 
@@ -27,4 +27,4 @@ function factory(host) {
   }
 }
 
-angular.module('starter').factory('socket', ['host', factory]);
+angular.module('starter').factory('socket', ['host', 'apiBackendVersion', factory]);
