@@ -1,5 +1,5 @@
 .im-chat-message {
-  margin: map-get($indents, md) map-get($indents, md);
+  padding: map-get($indents, md) map-get($indents, md);
 
   &:after {
     content: ' ';

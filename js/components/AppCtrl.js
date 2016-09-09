@@ -1,4 +1,7 @@
-function ctrl($scope, $state, storage, socket) {
+function ctrl($scope, $state, splashScreen, storage, socket) {
+
+  // Hide cordova's splash screen manually
+  splashScreen.hide();
 
   /**
    * @global CONNECTED {boolean}
@@ -23,4 +26,4 @@ function ctrl($scope, $state, storage, socket) {
   });
 }
 
-angular.module('starter.controllers').controller('AppCtrl', ['$scope', '$state', 'storage', 'socket', ctrl]);
+angular.module('starter.controllers').controller('AppCtrl', ['$scope', '$state', 'splashScreen', 'storage', 'socket', ctrl]);
