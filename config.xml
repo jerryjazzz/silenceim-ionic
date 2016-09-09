@@ -62,6 +62,15 @@
     <icon src="resources/osx/icon/icon-256x256.png" width="256" height="256"/>
     <icon src="resources/osx/icon/icon-512x512.png" width="512" height="512"/>
   </platform>
+  <platform name="ubuntu">
+    <!-- ionic does not build icons for OSX, so they were builded by a hand-->
+    <icon src="resources/ubuntu/icon/icon-16x16.png" width="16" height="16"/>
+    <icon src="resources/ubuntu/icon/icon-32x32.png" width="32" height="32"/>
+    <icon src="resources/ubuntu/icon/icon-64x64.png" width="64" height="64"/>
+    <icon src="resources/ubuntu/icon/icon-128x128.png" width="128" height="128"/>
+    <icon src="resources/ubuntu/icon/icon-256x256.png" width="256" height="256"/>
+    <icon src="resources/ubuntu/icon/icon-512x512.png" width="512" height="512"/>
+  </platform>
   <platform name="android">
     <splash src="resources/android/splash/drawable-land-ldpi-screen.png" density="land-ldpi"/>
     <splash src="resources/android/splash/drawable-land-mdpi-screen.png" density="land-mdpi"/>
