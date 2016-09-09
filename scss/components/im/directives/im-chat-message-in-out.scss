@@ -7,6 +7,17 @@
     word-break: break-all;
   }
 
+  .primary {
+    color: #888;
+    font-size: .8em;
+    padding-bottom: 2px;
+    display: none;
+
+    a {
+      color: #888;
+    }
+  }
+
   .message {
     @include media-breakpoint-up(md) {
       max-width: 70%;
@@ -23,6 +34,10 @@
 
   .balloon {
     background: $bg;
+  }
+
+  .primary {
+    text-align: right;
   }
 }
 

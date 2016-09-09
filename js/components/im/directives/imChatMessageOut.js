@@ -1,8 +1,9 @@
 function directive(chatIO) {
 
   const TEMPLATE = `
+<div class="primary">Your wrote, <a href="javascript:;" role="show-original">show original</a></div>
+
 <div class="message">
-  <!--<div class="primary">Crypto: <span class="crypto-time">0</span>MS, Your wrote  <a href="javascript:;" role="show-original">show original</a></div>-->
   <div class="balloon">
     <div class="body"></div>
     <!--<div class="aux">-->
