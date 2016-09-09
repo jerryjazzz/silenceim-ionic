@@ -8,6 +8,12 @@ cordova build ios
 cordova build blackberry10
 ```
 
+### iOS
+```bash
+cordova emulate ios --list
+cordova emulate ios --target="iPad-Air-2"
+```
+
 ### Android Release  
 
 ```bash
