@@ -40,6 +40,7 @@ function config($stateProvider, $urlRouterProvider) {
     views: {
       'users-tab': {
         templateUrl: 'templates/im/users_tab.html',
+        controller: 'ImUsersCtrl'
       },
     }
   }).state('app.im.room', {

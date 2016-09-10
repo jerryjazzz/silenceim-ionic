@@ -1,3 +1,5 @@
+const uuid = require('node-uuid');
+
 module.exports = function(app) {
 
   'use strict';
@@ -13,8 +15,13 @@ module.exports = function(app) {
       } else if (!userName) {
         cb(null, 'User name is required');
       } else {
+
+        socket.user = {
+          cid: uuid.v4(),
+          userName: userName,
+        };
+
         socket.roomName = roomName;
-        socket.userName = userName;
 
         // TODO check if it is not in the room currently
         socket.join(socket.roomName);

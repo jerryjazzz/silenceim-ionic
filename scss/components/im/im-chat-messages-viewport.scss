@@ -1,7 +1,7 @@
 .im-chat-messages-viewport {
   position: absolute;
   top: 0;
-  left: 0;
+  left: $im-chat-users-viewport-width;
   right: 0;
   bottom: $im-chat-control-viewport-height;
   overflow-y: auto;

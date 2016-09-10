@@ -1,0 +1,27 @@
+.im-chat-users-viewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:  $im-chat-users-viewport-width;
+  bottom: $im-chat-control-viewport-height;
+  overflow-y: auto;
+
+  .user {
+    margin: map-get($indents, md) 0;
+  }
+
+  .avatar {
+    $size: 45px;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    text-align: center;
+    line-height: $size;
+    font-size: $size * 0.3;
+    text-transform: uppercase;
+    background: #9c78be;
+    color: #FFF;
+    font-weight: bold;
+    margin: 0 auto;
+  }
+}

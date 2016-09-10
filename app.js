@@ -34,7 +34,7 @@ app.set('io', io);
 require('./backend/sockets/middleware/meta')(app);
 
 // Observers
-require('./backend/sockets/observers/socket_room')(app);
+require('./backend/sockets/observers/roster')(app);
 
 // Sockets
 require('./backend/sockets/feedback')(app);
