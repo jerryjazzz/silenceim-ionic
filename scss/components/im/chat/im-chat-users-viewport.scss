@@ -6,6 +6,17 @@
   bottom: $im-chat-control-viewport-height;
   overflow-y: auto;
 
+  &:after {
+    $height: 100%;
+    content: ' ';
+    position: absolute;
+    right: 0;
+    width: 1px;
+    height: $height;
+    top: (100% - $height)/2;
+    background: rgba(#000, .05);
+  }
+
   .user {
     margin: map-get($indents, md) 0;
   }
