@@ -1,24 +1,33 @@
 .im-chat-log {
-  margin: map-get($indents, sm) 0;
-  padding-left:  map-get($indents, sm);
-  border-left: 3px solid #f3458a;
 
-  .kind {
-    color: #8d234d;
-    text-transform: uppercase;
-  }
+  margin-left: 0;
+  margin-right: 0;
 
-  .prefix {
-    text-transform: uppercase;
-    color: #222;
-  }
-
-  .message {
+  .item {
+    font-size: 1em;
+    white-space: normal;
     word-break: break-all;
-    color: #333;
   }
 
-  .date {
-    padding-top: 2px;
+  .empty {
+    display: none;
+  }
+
+  tr {
+    td:first-child {
+      text-align: right;
+      font-weight: 500;
+      padding-left: 10px;
+    }
+
+    td {
+      padding-top: 1px;
+      padding-bottom: 1px;
+    }
+
+    td:last-child {
+      width: 100%;
+      padding-left: map-get($indents, md);
+    }
   }
 }

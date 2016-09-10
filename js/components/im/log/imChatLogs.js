@@ -1,4 +1,4 @@
-function directive(logr) {
+function directive(utils, logr) {
   return {
     restrict: 'C',
 
@@ -7,15 +7,28 @@ function directive(logr) {
 
       function render(msg, animate) {
         const html = `
-<div class="im-chat-log" data-id="${msg.cid}">
-  <span class="kind">[${msg.kind}]</span> <span class="prefix">${msg.prefix}</span> <span class="message">${msg.message}</span>
-  <div class="date"><i class="icon ion-android-time"></i> ${msg.date}</div>
+<div class="card  im-chat-log">
+ <div class="item item-divider">
+    ${msg.kind} ${msg.prefix}
+  </div>
+  <div class="item ${utils.isPresent(msg.message) ? '' : 'empty'}">
+    ${msg.message}
+  </div>
+   <div class="item item-divider">
+    ${msg.date}
+  </div>
 </div>
 `;
         const $html = $(html);
-        if (animate) $html.hide();
+
+        if (animate) $html.css({display: 'none', opacity: 0});;
         $el.prepend($html);
-        if (animate) $html.slideDown(200);
+
+        if (animate) {
+          $html.slideDown(200, function() {
+            $(this).fadeTo(100, 1);
+          });
+        }
       }
 
       logr.messages.forEach(function(msg) {
@@ -40,4 +53,4 @@ function directive(logr) {
   };
 }
 
-angular.module('starter.controllers').directive('imChatLogs', ['logr', directive]);
+angular.module('starter.controllers').directive('imChatLogs', ['utils', 'logr', directive]);
