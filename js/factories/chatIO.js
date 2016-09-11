@@ -6,6 +6,7 @@ function factory(socket) {
   // previously pushed messages in history
   const historyPub = new Rx.BehaviorSubject(messages);
   const pushPub = new Rx.Subject();
+  const updatePub = new Rx.Subject();
 
   /**
    * Exceptions
@@ -18,6 +19,16 @@ function factory(socket) {
     },
   };
 
+  /**
+   * @param message {message}
+   * @param params {object}
+   */
+  function update(message, params) {
+    $.each(params, function(k, v) {
+      message.set(k, v);
+    });
+    updatePub.onNext(message);
+  }
 
   function prune() {
     messages.length = 0;
@@ -44,13 +55,30 @@ function factory(socket) {
     return pushedMsg;
   }
 
+  /**
+   * @param message
+   */
+  function emit(message) {
+    message.enc().then(function(output) {
+      const cipOptions = output.cipResults.map(function(result) {
+        return $.extend({name: result.name}, result.publicData);
+      });
+
+      socket.emit('chat:message:post', {cipOutPut: output.outPut, cipOptions: cipOptions}, function() {
+        update(message, {sent: true});
+      });
+    });
+  }
+
   return {
     find,
     push,
+    emit,
+    prune,
+    messages,
     historyPub,
     pushPub,
-    messages,
-    prune
+    updatePub
   }
 }
 

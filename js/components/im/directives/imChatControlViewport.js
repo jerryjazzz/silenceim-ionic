@@ -1,4 +1,4 @@
-function directive(Message, utils, chatIO) {
+function directive(Message, utils, settings, chatIO) {
 
   const ENTER_KEY = 13;
 
@@ -10,7 +10,13 @@ function directive(Message, utils, chatIO) {
       const $textarea = $el.find('textarea');
 
       function submit(text) {
-        chatIO.push(new Message({body: text, kind: 'out'}));
+        let cipOptions = [];
+
+        if (settings.get('rc4Key')) {
+          cipOptions.push({name: 'rc4', key: settings.get('rc4Key')});
+        }
+
+        chatIO.push(new Message({body: text, kind: 'out', cipOptions: cipOptions}));
       }
 
       function clickBtn() {
@@ -40,4 +46,4 @@ function directive(Message, utils, chatIO) {
   };
 }
 
-angular.module('starter.controllers').directive('imChatControlViewport', ['Message', 'utils', 'chatIO', directive]);
+angular.module('starter.controllers').directive('imChatControlViewport', ['Message', 'utils', 'settings', 'chatIO', directive]);

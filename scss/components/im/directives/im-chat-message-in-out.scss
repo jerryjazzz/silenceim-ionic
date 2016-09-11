@@ -41,3 +41,20 @@
   }
 }
 
+.im-chat-message-in {
+  $bg: #dcf4fc;
+
+  .message {
+    float: left;
+  }
+
+  .balloon {
+    background: $bg;
+  }
+
+  .primary {
+    text-align: left;
+  }
+}
+
+

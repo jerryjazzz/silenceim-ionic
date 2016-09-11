@@ -27,6 +27,10 @@ function ctrl($scope, $compile, Message, chatIO) {
 
   const pushSub = chatIO.pushPub.subscribe(function(message) {
     render(message, true);
+
+    if (message.get('kind') === 'out') {
+      chatIO.emit(message);
+    }
   });
 
   if (!chatIO.messages.length) {

@@ -39,3 +39,4 @@ require('./backend/sockets/observers/roster')(app);
 // Sockets
 require('./backend/sockets/feedback')(app);
 require('./backend/sockets/room')(app);
+require('./backend/sockets/chat')(app);

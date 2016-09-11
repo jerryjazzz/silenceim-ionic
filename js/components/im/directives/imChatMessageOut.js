@@ -27,6 +27,7 @@ function directive(chatIO) {
       const message = chatIO.find($el.data('id'));
 
       $body.text(message.body);
+
       $el.html($template);
     }
   };
