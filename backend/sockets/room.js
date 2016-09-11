@@ -37,5 +37,9 @@ module.exports = function(app) {
       app.emit('socket:room:leave', socket);
       cb();
     });
+
+    socket.on('disconnect', function() {
+      app.emit('socket:room:leave', socket);
+    });
   });
 };

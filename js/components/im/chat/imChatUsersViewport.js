@@ -7,7 +7,7 @@ function directive(rosterIO) {
 
       function render(user) {
         const html = `
-<div class="user">
+<div class="user" data-id="${user.cid}">
   <div class="avatar">
     ${user.abbrev()}
   </div>  
@@ -25,9 +25,14 @@ function directive(rosterIO) {
         render(user);
       });
 
+      const removeSub = rosterIO.removePub.subscribe(function(user) {
+        $el.find(`.user[data-id=${user.cid}]`).remove();
+      });
+
       $scope.$on('$destroy', function() {
         listSub.dispose();
         pushSub.dispose();
+        removeSub.dispose();
       });
     }
   };

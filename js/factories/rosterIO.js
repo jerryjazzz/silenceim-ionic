@@ -3,6 +3,7 @@ function factory(User, socket) {
   const roster = [];
 
   const pushPub = new Rx.Subject();
+  const removePub = new Rx.Subject();
   const listPub = new Rx.BehaviorSubject(roster);
 
   function prune(newArray) {
@@ -24,9 +25,20 @@ function factory(User, socket) {
     pushPub.onNext(user);
   });
 
+  socket.on('roster:remove', function(userParams) {
+    const index = roster.findIndex(user => user.cid === userParams.cid);
+    const user = roster[index];
+
+    if (user) {
+      roster.splice(index, 1);
+      removePub.onNext(user);
+    }
+  });
+
   return {
     listPub,
-    pushPub
+    pushPub,
+    removePub
   }
 }
 

@@ -33,6 +33,11 @@ module.exports = function(app) {
     socket.emit('roster:list', users);
   }
 
+  function notifyLeave(socket) {
+    // broadcast to a room (excluding the client):
+    socket.broadcast.to(socket.roomName).emit('roster:remove', socket.user);
+  }
+
   app.on('socket:room:join', notifyJoin);
-  // app.on('socket:room:leave', notifyRoster);
+  app.on('socket:room:leave', notifyLeave);
 };
