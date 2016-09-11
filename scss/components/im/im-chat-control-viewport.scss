@@ -1,6 +1,6 @@
 .im-chat-control-viewport {
   position: absolute;
-  left: 0;
+  left: $im-chat-users-viewport-width;
   right: 0;
   bottom: 0;
   height: $im-chat-control-viewport-height;
@@ -12,7 +12,7 @@
     resize: none;
     border: none;
     background: transparent;
-    height: $im-chat-control-viewport-height;
+    height: $im-chat-control-viewport-height - $im-chat-control-preferences-height;
 
     &+figure {
       position: absolute;
@@ -31,6 +31,35 @@
       opacity: 1;
       left: 0;
       right: 0;
+    }
+  }
+}
+
+.im-chat-control-preferences {
+  height: $im-chat-control-preferences-height;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  padding-left: map-get($indents, md);
+
+  span {
+    font-size: 11px;
+    line-height: 13px;
+    display: inline-block;
+    color: #d7b0c0;
+    margin-right: 10px;
+
+    &:after {
+      content: ' OFF';
+    }
+
+    &.on {
+      color: #5ab12b;
+
+      &:after {
+        content: ' ON';
+      }
     }
   }
 }

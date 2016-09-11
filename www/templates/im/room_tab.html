@@ -18,22 +18,22 @@
         <div class="item item-divider">
           My Encryption
         </div>
-        <ion-item class="item-icon-left">
-          <i class="icon ion-checkmark-circled "></i>
+        <ion-item class="item-icon-right">
+          <i class="icon ion-happy-outline" ng-show="is('pgp')"></i>
+          <i class="icon ion-sad-outline"  ng-show="!is('pgp')"></i>
           PGP Encryption
-          <!--<p class="m-t-sm">To enable PGP encryption provide <a class="text-decoration-none" href="#/app/pgp/buddy-public">buddy public key</a></p>-->
         </ion-item>
 
-        <ion-item class="item-icon-left">
-          <i class="icon ion-checkmark-circled"></i>
+        <ion-item class="item-icon-right">
+          <i class="icon ion-happy-outline" ng-show="is('pgp')"></i>
+          <i class="icon ion-sad-outline"  ng-show="!is('pgp')"></i>
           AES Encryption
-          <!--<p class="m-t-sm">To enable AES encryption generate <a class="text-decoration-none" href="#/app/aes">AES key</a></p>-->
         </ion-item>
 
-        <ion-item class="item-icon-left">
-          <i class="icon ion-checkmark-circled"></i>
+        <ion-item class="item-icon-right">
+          <i class="icon ion-happy-outline" ng-show="is('rc4')"></i>
+          <i class="icon ion-sad-outline"  ng-show="!is('rc4')"></i>
           RC4 Encryption
-          <!--<p class="m-t-sm">To enable AES encryption generate <a class="text-decoration-none" href="#/app/aes">AES key</a></p>-->
         </ion-item>
       </div>
     </div>

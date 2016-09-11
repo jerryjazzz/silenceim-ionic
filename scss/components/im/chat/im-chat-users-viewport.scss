@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width:  $im-chat-users-viewport-width;
-  bottom: $im-chat-control-viewport-height;
+  bottom: 0;
   overflow-y: auto;
 
   &:after {
