@@ -38,7 +38,8 @@ function factory(User, socket) {
   return {
     listPub,
     pushPub,
-    removePub
+    removePub,
+    prune
   }
 }
 

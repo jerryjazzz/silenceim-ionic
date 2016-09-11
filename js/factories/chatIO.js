@@ -18,6 +18,11 @@ function factory(socket) {
     },
   };
 
+
+  function prune() {
+    messages.length = 0;
+  }
+
   /**
    * @param cid {number}
    * @returns {Message}
@@ -44,7 +49,8 @@ function factory(socket) {
     push,
     historyPub,
     pushPub,
-    messages
+    messages,
+    prune
   }
 }
 
