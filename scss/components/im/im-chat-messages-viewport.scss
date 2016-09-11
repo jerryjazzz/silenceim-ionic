@@ -5,4 +5,8 @@
   right: 0;
   bottom: $im-chat-control-viewport-height;
   overflow-y: auto;
+
+  @include media-breakpoint-down(sm) {
+    left: 0;
+  }
 }

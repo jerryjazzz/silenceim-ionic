@@ -6,6 +6,10 @@
   bottom: 0;
   overflow-y: auto;
 
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+
   &:after {
     $height: 100%;
     content: ' ';

@@ -7,6 +7,10 @@
   background: #FFF;
   border-top: rgba(#000, .1) 1px solid;
 
+  @include media-breakpoint-down(sm) {
+    left: 0;
+  }
+
   textarea {
     width: 100%;
     resize: none;
