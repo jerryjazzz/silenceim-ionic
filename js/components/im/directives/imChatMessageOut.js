@@ -5,15 +5,11 @@ function directive(chatIO) {
 
 <div class="message">
   <div class="balloon">
-    <div class="body"></div>
-    <!--<div class="aux">-->
-      <!--<span class="status">Sending...</span>-->
-      <!--<bdi data-cipher="aes">AES</bdi>-->
-      <!--<bdi data-cipher="rc4">RC4</bdi>-->
-      <!--<bdi data-cipher="pgp">PGP</bdi>-->
-    <!--</div>-->
+    <div class="body"></div>    
   </div>
 </div>
+<div class="clearfix"></div>
+<div class="secondary"><span class="status">Sending..</span></div>
 `;
 
 
@@ -24,11 +20,30 @@ function directive(chatIO) {
       const $el = $(element);
       const $template = $(TEMPLATE);
       const $body = $template.find('.body');
+      const $status = $template.find('.status');
       const message = chatIO.find($el.data('id'));
 
       $body.text(message.body);
-
       $el.html($template);
+
+      function update() {
+        if (message.sent) {
+          $status.text('Sent');
+        }
+      }
+
+      update();
+
+      const updateSub = chatIO.updatePub.subscribe(function(msg) {
+        if (msg.cid === message.cid) {
+          update();
+        }
+      });
+
+      $scope.$on('$destroy', function() {
+        $el.off();
+        updateSub.dispose();
+      });
     }
   };
 }

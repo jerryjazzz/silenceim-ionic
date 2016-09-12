@@ -18,6 +18,12 @@
     }
   }
 
+  .secondary {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #666;
+  }
+
   .message {
     @include media-breakpoint-up(md) {
       max-width: 70%;
@@ -37,6 +43,10 @@
   }
 
   .primary {
+    text-align: right;
+  }
+
+  .secondary {
     text-align: right;
   }
 }
