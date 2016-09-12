@@ -24,19 +24,13 @@ function directive(settings, chatIO) {
 
       $user.text(message.user.userName);
 
-
-      // const cipOptions = [];
-      //
-      // message.cipOptions.forEach(function(options) {
-      //   if (options.name === 'rc4') {
-      //     cipOptions.push($.extend(options, {key: settings.get('rc4Key')}));
-      //   }
-      // });
-      //
-      // message.dec(cipOptions).then(function(result) {
-      // });
-
       $el.html($template);
+
+      message.dec().then(function(crc) {
+        $body.text(crc.ct);
+      }).catch(function(e) {
+        $body.text(e);
+      });
     }
   };
 }

@@ -15,12 +15,20 @@
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/toastr/toastr.min.js"></script>
     <script src="lib/rxjs/dist/rx.lite.min.js"></script>
+    <script src="lib/requirejs/require.js"></script>
+    <script src="lib/enigma/dist/enigma.min.js"></script>
 
-    <!-- cryptography -->
-    <script src="lib/openpgp/dist/openpgp.min.js"></script>
-    <script src="lib/sjcl/sjcl.js"></script>
-    <script src="lib/crypto-js/crypto-js.js"></script>
-    <script src="lib/enigma/dist/enigma.bundle.js"></script>
+    <!-- enigma -->
+    <script>
+      requirejs.config({
+        baseUrl: 'lib',
+        paths: {
+          sjcl: 'sjcl/sjcl',
+          CryptoJS: 'crypto-js/crypto-js',
+          openpgp: 'openpgp/dist/openpgp.min'
+        }
+      });
+    </script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>

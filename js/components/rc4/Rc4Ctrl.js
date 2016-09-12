@@ -1,4 +1,5 @@
-function ctrl($scope, utils, settings) {
+/* global toastr */
+function ctrl($scope, utils, settings, enigma) {
 
   $scope.model = {
     bit: 256,
@@ -19,8 +20,20 @@ function ctrl($scope, utils, settings) {
 
   $scope.submit = function() {
     if (utils.isPresent($scope.model.passphrase)) {
-      save(enigma.misc.keygen.hex($scope.model.passphrase, {iterations: $scope.model.iterations, length: $scope.model.bit}));
-      toastr.success('RC4 key has been saved');
+
+      const promise = enigma.keyGen($scope.model.passphrase, { iterations: $scope.model.iterations, length: $scope.model.bit });
+
+      promise.then(function(key) {
+        $scope.$evalAsync(function() {
+          save(key);
+          toastr.success('AES key has been saved')
+        });
+      });
+
+      promise.catch(function(e) {
+        toastr.warning(e);
+      });
+
     } else if ($scope.model.key) {
       save();
       toastr.warning('RC4 key has been removed');
@@ -30,4 +43,4 @@ function ctrl($scope, utils, settings) {
   };
 }
 
-angular.module('starter.controllers').controller('Rc4Ctrl', ['$scope', 'utils', 'settings', ctrl]);
+angular.module('starter.controllers').controller('Rc4Ctrl', ['$scope', 'utils', 'settings', 'enigma', ctrl]);

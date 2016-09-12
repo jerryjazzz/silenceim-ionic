@@ -59,14 +59,16 @@ function factory(socket) {
    * @param message
    */
   function emit(message) {
-    message.enc().then(function(output) {
-      const cipOptions = output.cipResults.map(function(result) {
-        return $.extend({name: result.name}, result.publicData);
+    message.enc().then(function(crc) {
+      const sanitizedCD = crc.cd.map(function(cr) {
+        return $.merge({name: cr.name}, cr.publicData);
       });
 
-      socket.emit('chat:message:post', {cipOutPut: output.outPut, cipOptions: cipOptions}, function() {
+      socket.emit('chat:message:post', {ct: crc.ct, cd: sanitizedCD}, function() {
         update(message, {sent: true});
       });
+    }).catch(function(e) {
+      alert(e);
     });
   }
 
