@@ -64,6 +64,10 @@ function factory(socket) {
         return $.merge({name: cr.name}, cr.publicData);
       });
 
+      const cbm = crc.cd.map(function(cr) {
+        return $.merge({name: cr.name}, cr.publicData);
+      });
+
       socket.emit('chat:message:post', {ct: crc.ct, cd: sanitizedCD}, function() {
         update(message, {sent: true});
       });

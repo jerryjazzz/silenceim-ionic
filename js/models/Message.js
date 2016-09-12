@@ -53,7 +53,7 @@ function factory(settings, enigma) {
     get(key) {
       return this[key]
     }
-
+    
     /**
      * @returns {promise}
      */
