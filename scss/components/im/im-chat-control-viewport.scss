@@ -51,7 +51,7 @@
     font-size: 11px;
     line-height: 13px;
     display: inline-block;
-    color: #b16081;
+    color: map-get($coloration, danger);
     margin-right: 10px;
 
     &:after {
@@ -59,7 +59,7 @@
     }
 
     &.on {
-      color: #5ab12b;
+      color: map-get($coloration, success);
 
       &:after {
         content: ' ON';

@@ -9,7 +9,11 @@ function directive(chatIO) {
   </div>
 </div>
 <div class="clearfix"></div>
-<div class="secondary"><span class="status">Sending..</span></div>
+
+<div class="secondary">
+  <span class="status">Sending..</span>
+  <bdi class="crypto"></bdi>
+</div>
 `;
 
 
@@ -21,6 +25,7 @@ function directive(chatIO) {
       const $template = $(TEMPLATE);
       const $body = $template.find('.body');
       const $status = $template.find('.status');
+      const $crypto = $template.find('.crypto');
       const message = chatIO.find($el.data('id'));
 
       $body.text(message.body);
@@ -29,6 +34,15 @@ function directive(chatIO) {
       function update() {
         if (message.sent) {
           $status.text('Sent');
+        }
+
+        if (!$.isEmptyObject(message.cbm)) {
+          $crypto.html('');
+          $.each(message.cbm, function(cipherName, ms) {
+            $crypto.append(`<span class="color-success">${cipherName}: ${ms}MS.</span>`);
+          });
+        } else {
+          $crypto.html('<span class="color-danger">Plaintext</span>');
         }
       }
 
