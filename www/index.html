@@ -7,21 +7,22 @@
     <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
     <title></title>
 
-    <link href="css/ionic.app.min.css" rel="stylesheet">
-    <link href="lib/toastr/toastr.min.css" rel="stylesheet">
+    <link href="css/ionic.app.min.css?digest=${digest}" rel="stylesheet">
+    <link href="lib/toastr/toastr.min.css?digest=${digest}" rel="stylesheet">
 
-    <script src="lib/socket.io-client/socket.io.js"></script>
-    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
-    <script src="lib/jquery/dist/jquery.min.js"></script>
-    <script src="lib/toastr/toastr.min.js"></script>
-    <script src="lib/rxjs/dist/rx.lite.min.js"></script>
-    <script src="lib/requirejs/require.js"></script>
-    <script src="lib/enigma/dist/enigma.min.js"></script>
+    <script src="lib/socket.io-client/socket.io.js?digest=${digest}"></script>
+    <script src="lib/ionic/js/ionic.bundle.min.js?digest=${digest}"></script>
+    <script src="lib/jquery/dist/jquery.min.js?digest=${digest}"></script>
+    <script src="lib/toastr/toastr.min.js?digest=${digest}"></script>
+    <script src="lib/rxjs/dist/rx.lite.min.js?digest=${digest}"></script>
+    <script src="lib/requirejs/require.js?digest=${digest}"></script>
+    <script src="lib/enigma/dist/enigma.min.js?digest=${digest}"></script>
 
     <!-- enigma -->
     <script>
       requirejs.config({
         baseUrl: 'lib',
+        urlArgs: "digest=${digest}",
         paths: {
           sjcl: 'sjcl/sjcl',
           CryptoJS: 'crypto-js/crypto-js',
@@ -34,7 +35,7 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="js/app.js"></script>
+    <script src="js/app.js?digest=${digest}"></script>
   </head>
 
   <body ng-app="starter">

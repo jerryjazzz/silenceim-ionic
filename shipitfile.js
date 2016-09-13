@@ -1,3 +1,5 @@
+const utils = require('shipit-utils');
+
 require('dotenv').config();
 
 module.exports = function (shipit) {
@@ -8,6 +10,33 @@ module.exports = function (shipit) {
   require('shipit-shared')(shipit);
   require('shipit-bower')(shipit);
   require('shipit-npm')(shipit); // shipit production npm:init npm:install
+
+  /**
+   * Digest your assets replaces all `${digest}` text-pattern with timestamp
+   * inside *index.html*
+   */
+  shipit.blTask('digest', function() {
+    const fs = require('fs');
+    const filePath = shipit.config.workspace + '/www/index.html';
+    const digest = new Date()/1;
+
+    return new Promise(function(resolve) {
+      fs.readFile(filePath, 'utf8', function(err, data) {
+        if (err) throw err;
+
+        fs.writeFile(filePath, data.replace('${digest}', digest), 'utf8', function(err) {
+          if(err) throw err;
+
+          shipit.log(`DIGEST DONE ${filePath}`);
+          resolve();
+        });
+      });
+    });
+  });
+
+  shipit.on('fetched', function restart() {
+    shipit.start('digest');
+  });
 
   shipit.initConfig({
     default: {
@@ -38,7 +67,7 @@ module.exports = function (shipit) {
     }
   });
 
-  shipit.on('published', function() {
+  shipit.on('published', function restart() {
     shipit.remote('pm2 restart app');
   });
 };
