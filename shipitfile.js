@@ -24,7 +24,7 @@ module.exports = function (shipit) {
       fs.readFile(filePath, 'utf8', function(err, data) {
         if (err) throw err;
 
-        fs.writeFile(filePath, data.replace('${digest}', digest), 'utf8', function(err) {
+        fs.writeFile(filePath, data.replace(/\${digest}/g, digest), 'utf8', function(err) {
           if(err) throw err;
 
           shipit.log(`DIGEST DONE ${filePath}`);
@@ -32,10 +32,6 @@ module.exports = function (shipit) {
         });
       });
     });
-  });
-
-  shipit.on('fetched', function restart() {
-    shipit.start('digest');
   });
 
   shipit.initConfig({
@@ -65,6 +61,10 @@ module.exports = function (shipit) {
     production: {
       servers: `${DEPLOY_USER}@silenceim.com`
     }
+  });
+
+  shipit.on('fetched', function restart() {
+    shipit.start('digest');
   });
 
   shipit.on('published', function restart() {
