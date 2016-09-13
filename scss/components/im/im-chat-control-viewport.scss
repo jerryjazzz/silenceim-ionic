@@ -16,7 +16,8 @@
     resize: none;
     border: none;
     background: transparent;
-    height: $im-chat-control-viewport-height - $im-chat-control-preferences-height;
+    padding-right: $im-chat-control-preferences-width + map-get($indents, md) !important ;
+    height: $im-chat-control-viewport-height;
 
     &+figure {
       position: absolute;
@@ -40,30 +41,35 @@
 }
 
 .im-chat-control-preferences {
-  height: $im-chat-control-preferences-height;
   display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: space-around;
-  padding-left: map-get($indents, md);
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  width: $im-chat-control-preferences-width;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-left: rgba(#000, .05) 1px solid;
 
   span {
     font-size: 11px;
-    line-height: 13px;
-    display: inline-block;
     color: map-get($coloration, danger);
-    margin-right: 10px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 1px;
+    border-bottom: 1px solid rgba(#000, .1);
 
-    &:after {
-      content: ' OFF';
+    &:last-child {
+      border-bottom: none;
     }
 
     &.on {
       color: map-get($coloration, success);
-
-      &:after {
-        content: ' ON';
-      }
     }
   }
 }
