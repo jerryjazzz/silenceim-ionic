@@ -61,7 +61,6 @@
     align-content: center;
     align-items: center;
     justify-content: center;
-    text-shadow: 0 0 1px;
     border-bottom: 1px solid rgba(#000, .1);
 
     &:last-child {
@@ -69,6 +68,7 @@
     }
 
     &.on {
+      text-shadow: 0 0 1px;
       color: map-get($coloration, success);
     }
   }
