@@ -45,6 +45,15 @@ function factory(settings, socket) {
     });
   }
 
+  /**
+   * Auto join room on reconnection /!\
+   */
+  socket.connPub.subscribe(function(connected) {
+    if (connected && isJoined()) {
+      join(getCredentials());
+    }
+  });
+
   return {
     join,
     leave,
