@@ -1,0 +1,48 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Original</h1>
+    <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+  </ion-header-bar>
+
+  <ion-content ng-controller="ImChatOriginalCtrl">
+    <div class="list">
+
+
+      <div ng-show="error">
+        <div class="item item-divider">
+          Cipher error
+        </div>
+
+        <div class="item">
+          <span class="word-break-all" style="white-space: normal">{{ error }}</span>
+        </div>
+      </div>
+
+      <div ng-show="crc">
+        <div class="item item-divider">
+          Cipher text
+        </div>
+
+        <div class="item">
+          <span class="word-break-all" style="white-space: normal">{{ crc.ct }}</span>
+        </div>
+
+        <div ng-repeat="cd in crc.cd">
+          <div class="item item-divider">
+            Cipher {{ cd.name }} ({{ cd.bm }})MS.
+          </div>
+
+          <div class="item">
+            <h3>Input</h3>
+            <span class="word-break-all" style="white-space: normal">{{ cd.inPut }}</span>
+          </div>
+
+          <div class="item">
+            <h3>Output</h3>
+            <span class="word-break-all" style="white-space: normal">{{ cd.outPut }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>
