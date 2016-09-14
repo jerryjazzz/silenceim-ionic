@@ -26,7 +26,7 @@ function ctrl($scope, utils, settings, enigma) {
       promise.then(function(key) {
         $scope.$evalAsync(function() {
           save(key);
-          toastr.success('AES key has been saved')
+          toastr.success('RC4 key has been saved')
         });
       });
 
