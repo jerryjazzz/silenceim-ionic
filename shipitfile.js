@@ -24,7 +24,7 @@ module.exports = function (shipit) {
       fs.readFile(filePath, 'utf8', function(err, data) {
         if (err) throw err;
 
-        fs.writeFile(filePath, data.replace(/\${digest}/g, digest), 'utf8', function(err) {
+        fs.writeFile(filePath, data.replace(/digest=\d*/g, "digest=${digest}"), 'utf8', function(err) {
           if(err) throw err;
 
           shipit.log(`DIGEST DONE ${filePath}`);
