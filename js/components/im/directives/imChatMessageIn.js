@@ -1,4 +1,4 @@
-function directive(settings, chatIO) {
+function directive(chatIO, imChatMessageDelegator) {
 
   const TEMPLATE = `
 <div class="primary"><span class="user"></span> wrote, <a href="javascript:;" role="show-original">show original</a></div>
@@ -10,6 +10,12 @@ function directive(settings, chatIO) {
     </div>
   </div>
 </div>
+
+<div class="clearfix"></div>
+
+<div class="secondary">
+  <bdi class="crypto"></bdi>
+</div>
 `;
 
   return {
@@ -20,6 +26,7 @@ function directive(settings, chatIO) {
       const $template = $(TEMPLATE);
       const $body = $template.find('.body');
       const $user = $template.find('.user');
+      const $crypto = $template.find('.crypto');
       const message = chatIO.find($el.data('id'));
 
       $user.text(message.user.userName);
@@ -28,6 +35,7 @@ function directive(settings, chatIO) {
 
       message.dec().then(function(crc) {
         $body.text(crc.ct);
+        imChatMessageDelegator.updateCBM($crypto, crc.measure());
       }).catch(function(e) {
         $el.addClass('has-error');
         $body.html(`<i class="icon ion-android-alert"></i> ${e}`);
@@ -36,4 +44,4 @@ function directive(settings, chatIO) {
   };
 }
 
-angular.module('starter.controllers').directive('imChatMessageIn', ['settings', 'chatIO', directive]);
+angular.module('starter.controllers').directive('imChatMessageIn', ['chatIO', 'imChatMessageDelegator', directive]);

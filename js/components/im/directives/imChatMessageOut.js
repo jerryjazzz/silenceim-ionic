@@ -1,4 +1,4 @@
-function directive(chatIO) {
+function directive(chatIO, imChatMessageDelegator) {
 
   const TEMPLATE = `
 <div class="primary">Your wrote, <a href="javascript:;" role="show-original">show original</a></div>
@@ -8,6 +8,7 @@ function directive(chatIO) {
     <div class="body"></div>    
   </div>
 </div>
+
 <div class="clearfix"></div>
 
 <div class="secondary">
@@ -32,18 +33,8 @@ function directive(chatIO) {
       $el.html($template);
 
       function update() {
-        if (message.sent) {
-          $status.text('Sent');
-        }
-
-        if (!$.isEmptyObject(message.cbm)) {
-          $crypto.html('');
-          $.each(message.cbm, function(cipherName, ms) {
-            $crypto.append(`<span class="color-success">${cipherName}: ${ms}MS.</span>`);
-          });
-        } else {
-          $crypto.html('<span class="color-danger">Plaintext</span>');
-        }
+        if (message.sent) $status.text('Sent');
+        imChatMessageDelegator.updateCBM($crypto, message.cbm);
       }
 
       update();
@@ -62,4 +53,4 @@ function directive(chatIO) {
   };
 }
 
-angular.module('starter.controllers').directive('imChatMessageOut', ['chatIO', directive]);
+angular.module('starter.controllers').directive('imChatMessageOut', ['chatIO', 'imChatMessageDelegator', directive]);

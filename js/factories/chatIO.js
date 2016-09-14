@@ -60,12 +60,16 @@ function factory(socket) {
    */
   function emit(message) {
     message.enc().then(function(crc) {
+
       const sanitizedCD = crc.cd.map(function(cr) {
         return $.merge({name: cr.name}, cr.publicData);
       });
 
+      // updates with ciphers benchmark and then updates with sent status
+      update(message, {cbm: crc.measure()});
+
       socket.emit('chat:message:post', {ct: crc.ct, cd: sanitizedCD}, function() {
-        update(message, {sent: true, cbm: crc.measure()});
+        update(message, {sent: true});
       });
     }).catch(function(e) {
       alert(e);
