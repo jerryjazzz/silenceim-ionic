@@ -7,6 +7,11 @@
     word-break: break-all;
   }
 
+  &.has-error .balloon {
+    background: map-get($coloration, danger);
+    color: rgba(#FFF, .8);
+  }
+
   .primary {
     color: #888;
     font-size: .8em;

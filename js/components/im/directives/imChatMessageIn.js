@@ -29,6 +29,7 @@ function directive(settings, chatIO) {
       message.dec().then(function(crc) {
         $body.text(crc.ct);
       }).catch(function(e) {
+        $el.addClass('has-error');
         $body.text(e);
       });
     }
