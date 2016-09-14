@@ -1,10 +1,6 @@
 function factory(socket) {
 
   const messages = [];
-
-  // subscribe on this on controller init to render
-  // previously pushed messages in history
-  const historyPub = new Rx.BehaviorSubject(messages);
   const pushPub = new Rx.Subject();
   const updatePub = new Rx.Subject();
 
@@ -82,7 +78,6 @@ function factory(socket) {
     emit,
     prune,
     messages,
-    historyPub,
     pushPub,
     updatePub
   }

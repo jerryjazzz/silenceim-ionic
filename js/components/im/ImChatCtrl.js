@@ -21,9 +21,7 @@ function ctrl($scope, $compile, Message, chatIO) {
   }
 
   // Render history
-  chatIO.historyPub.subscribe(function(messages) {
-    messages.forEach((message) => render(message, false));
-  }).dispose();
+  chatIO.messages.forEach((message) => render(message, false));
 
   const pushSub = chatIO.pushPub.subscribe(function(message) {
     render(message, true);
