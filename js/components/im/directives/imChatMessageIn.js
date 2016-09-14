@@ -30,7 +30,7 @@ function directive(settings, chatIO) {
         $body.text(crc.ct);
       }).catch(function(e) {
         $el.addClass('has-error');
-        $body.text(e);
+        $body.html(`<i class="icon ion-android-alert"></i> ${e}`);
       });
     }
   };
