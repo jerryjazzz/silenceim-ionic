@@ -10,24 +10,27 @@ module.exports = function(app) {
     socket.on('room:join', function({roomName, userName}, fn) {
       const cb = fn || function() {};
 
-      if (!roomName) {
-        cb(null, 'Room name is required');
-      } else if (!userName) {
+      if (!userName) {
         cb(null, 'User name is required');
+      } else if (!roomName) {
+        cb(null, 'Room name is required');
       } else {
 
-        socket.user = {
-          cid: uuid.v4(),
-          userName: userName,
-        };
+        if (socket.roomName) {
+          cb(); // socket is currently in room
+        } else {
+          socket.user = {
+            cid: uuid.v4(),
+            userName: userName,
+          };
 
-        socket.roomName = roomName;
+          socket.roomName = roomName;
+          socket.join(socket.roomName);
 
-        // TODO check if it is not in the room currently
-        socket.join(socket.roomName);
-        app.emit('socket:room:join', socket);
+          app.emit('socket:room:join', socket);
 
-        cb();
+          cb();
+        }
       }
     });
 
